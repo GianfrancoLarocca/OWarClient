@@ -23,39 +23,6 @@ body {
   margin-bottom: 8px;
 }
 
-.login-button {
-  width: 60%;
-  max-width: 150px;
-  height: 60px;
-  background: linear-gradient(to right, #3a1a43, #251027);
-  border-radius: 15px;
-  border-color: #fff;
-  font-size: larger;
-  color: #fff;
-  margin-bottom: 30px;
-}
-
-.login-button:hover {
-
-  background: linear-gradient(to right, #4f285a, #4a204e);
-  border-radius: 10px;
-  font-size: x-large;
-  color: #fff;
-}
-
-.secondary-buttons {
-  width: 100%;
-  background: linear-gradient(to right, #3a1a43, #251027);
-  border-color: #fff;
-  font-size: x-small;
-  color: #fff;
-  margin-bottom: 5px;
-}
-
-.secondary-buttons:hover {
-  background: linear-gradient(to right, #4f285a, #4a204e);
-}
-
 .login-container input {
   width: 100%;
   padding: 10px;
@@ -68,6 +35,26 @@ body {
   outline: none;
 }
 
+.login-button {
+  width: 60%;
+  max-width: 150px;
+  height: 60px;
+  background: linear-gradient(to right, #3a1a43, #251027);
+  border-radius: 15px;
+  border-color: #fff;
+  font-size: larger;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.login-button:hover {
+
+  background: linear-gradient(to right, #4f285a, #4a204e);
+  border-radius: 10px;
+  font-size: x-large;
+  color: #fff;
+}
+
 .errors-container {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(37, 16, 39, 0.7));
   padding: 100px 20px;
@@ -76,9 +63,4 @@ body {
   margin-left: 20px;
   text-align: center;
   color: #fff;
-}
-
-.utils-form {
-  border-top: solid 1px #fff;
-  padding: 20px 10px;
 }

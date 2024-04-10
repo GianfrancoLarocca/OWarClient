@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Register</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" placeholder="Username" formControlName="username" />
+      </div>
+      <div>
+        <input type="text" placeholder="Email" email formControlName="email" />
+      </div>
+      <div>
+        <input type="password" placeholder="Password" formControlName="password" />
+      </div>
+      <div>
+        <button type="submit" class="login-button">Registrati</button>
+      </div>
+    </form>
+  </div>
+  <div class="errors-container" *ngIf="this.messages;">
+    <h2>ERRORS</h2>
+    <ul>
+      <li *ngFor="let message of this.messages">{{message}}</li>
+    </ul>
+  </div>
+</body>
+</html>

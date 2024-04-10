@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attivazione Account</title>
+</head>
+<body>
+    <div class="container">
+
+      <ng-container *ngIf="!this.resp; else showMessage">
+        <h2>LOADING...</h2>
+      </ng-container>
+
+      <ng-template #showMessage>
+        <div *ngIf="this.result==true">
+          <h2>Account Attivato con Successo!</h2>
+          <p>Grazie per aver confermato l'account.</p>
+          <a routerLink="/home">GIOCA!</a>
+        </div>
+        <div *ngIf="this.result==false">
+          <h2>Attivazione Account Fallita</h2>
+          <p>Prima di confermare l'account devi aver fatto il login! </p>
+          <a routerLink="/login">LOGIN</a>
+        </div>
+      </ng-template>
+
+    </div>
+</body>
+</html>

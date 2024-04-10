@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+      <div class="header-section header-logo" routerLink="/home">
+        <img src="https://raw.githubusercontent.com/GianfrancoLarocca/OWar/main/LOGO/owar-game-logo.jpg" alt="Girl in a jacket" width="100%" height="100%">
+      </div>
+      <div class="header-main-section">
+        <h2>RISORSE...</h2>
+      </div>
+      <div class="header-section">
+        <div class="user-button" routerLink="login">GIANCOTSU</div>
+      </div>
+    </div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="left-sidebar">
+          <div class="custom-button" routerLink="home">HOME</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+        </div>
+
+        <div class="content">
+            <div class="main">
+              <router-outlet></router-outlet>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+          <div class="custom-button">PLACEHOLDER</div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

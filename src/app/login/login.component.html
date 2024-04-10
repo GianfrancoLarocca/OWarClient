@@ -1,1 +1,35 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWar</title>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" placeholder="Username" formControlName="username" />
+      </div>
+      <div>
+        <input type="password" placeholder="Password" formControlName="password" />
+      </div>
+      <div>
+        <button type="submit" class="login-button">Entra</button>
+      </div>
+      <div class="utils-form">
+        <P>Non ti ricordi i dati di accesso?</P>
+        <button type="button" class="secondary-buttons" (click)="resetDati()">Reset Password</button>
+        <P>Non ti sei ancora registrato?</P>
+        <button type="button" class="secondary-buttons" (click)="registrati()">Registrati !</button>
+      </div>
+    </form>
+  </div>
+  <div class="errors-container" *ngIf="this.loginError;">
+    <h2>ERRORE</h2>
+    <p>Username sconosciuto o password errata.</p>
+    <p>Prova di nuovo o clicca su "Non mi ricordo i dati d'accesso".</p>
+  </div>
+</body>
+</html>

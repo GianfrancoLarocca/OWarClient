@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: url('../src/assets/img/background/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
