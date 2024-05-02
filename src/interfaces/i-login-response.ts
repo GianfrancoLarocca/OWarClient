@@ -3,5 +3,5 @@ export interface ILoginResponse {
   role: string;
   token: string;
   type: string;
-  exp: Date;
+  expiration: Date;
 }

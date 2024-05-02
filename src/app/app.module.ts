@@ -12,6 +12,12 @@ import { HomeComponent } from './home/home.component';
 import { AccountActivationComponent } from './account-activation/account-activation.component';
 import { BaseComponent } from './base/base.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PlayerComponent } from './player/player.component';
+import '@angular/common/locales/global/it';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+
 
 @NgModule({
   declarations: [
@@ -21,21 +27,25 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     HomeComponent,
     AccountActivationComponent,
     BaseComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    PlayerComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    provideAnimationsAsync()
 
   ],
   bootstrap: [AppComponent]

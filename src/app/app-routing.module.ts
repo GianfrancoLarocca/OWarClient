@@ -8,6 +8,7 @@ import { authGuard } from '../services/auth/auth.guard';
 import { AccountActivationComponent } from './account-activation/account-activation.component';
 import { BaseComponent } from './base/base.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PlayerComponent } from './player/player.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,11 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         data: { title: 'home' }
+      },
+      {
+        path: 'player',
+        component: PlayerComponent,
+        data: { title: 'player' }
       },
     ]
   },

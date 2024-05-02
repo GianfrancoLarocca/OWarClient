@@ -3,56 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
+<title>OWar</title>
 </head>
-<body>
+<body (click)="chiudiTutto()">
 
-<div class="container">
+  <div class="all">
+    <header class="header">
 
-    <div class="header">
-      <div class="header-section header-logo" routerLink="/home">
-        <img src="https://raw.githubusercontent.com/GianfrancoLarocca/OWar/main/LOGO/owar-game-logo.jpg" alt="Girl in a jacket" width="100%" height="100%">
-      </div>
-      <div class="header-main-section">
-        <h2>RISORSE...</h2>
-      </div>
-      <div class="header-section">
-        <div class="user-button" routerLink="login">GIANCOTSU</div>
-      </div>
-    </div>
+      <img src="../../assets/img/logo/owar-game-logo.jpg" alt="Logo" class="logo fake-button">
 
-    <div class="dashboard-wrapper">
-
-        <div class="left-sidebar">
-          <div class="custom-button" routerLink="home">HOME</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-        </div>
-
-        <div class="content">
-            <div class="main">
-              <router-outlet></router-outlet>
+      <nav class="risorse">
+        <ul>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.microchipDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+                <h5>PRODUZIONE:</h5>
+                <p>Produzione di {{this.playerService.microchipDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.microchipProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+                <p>Produzione di {{this.playerService.microchipDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.microchipProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+                <p>Produzione di {{this.playerService.microchipDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.microchipProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+                <p>Produzione di {{this.playerService.microchipDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.microchipProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+                <p>Produzione di {{this.playerService.microchipDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.microchipProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+              </div>
             </div>
+            <p>{{this.playerService.microchipDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.microchipDto?.urlImmagine}} alt={{this.playerService.microchipDto?.nomeRisorsa}}>
+            <p>{{this.playerService.microchipDto?.quantitaCorta}}</p>
+          </li>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.metalloDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+              <h5>PRODUZIONE:</h5>
+              <p>Produzione di {{this.playerService.metalloDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.metalloProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.metalloDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.metalloProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.metalloDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.metalloProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.metalloDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.metalloProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.metalloDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.metalloProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+            </div>
+          </div>
+            <p>{{this.playerService.metalloDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.metalloDto?.urlImmagine}} alt={{this.playerService.metalloDto?.nomeRisorsa}}>
+            <p>{{this.playerService.metalloDto?.quantitaCorta}}</p>
+          </li>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.energiaDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+              <h5>PRODUZIONE:</h5>
+              <p>Produzione di {{this.playerService.energiaDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.energiaProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.energiaDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.energiaProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.energiaDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.energiaProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.energiaDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.energiaProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.energiaDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.energiaProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+            </div>
+          </div>
+            <p>{{this.playerService.energiaDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.energiaDto?.urlImmagine}} alt={{this.playerService.energiaDto?.nomeRisorsa}}>
+            <p>{{this.playerService.energiaDto?.quantitaCorta}}</p>
+          </li>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.civiliDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+              <h5>PRODUZIONE:</h5>
+              <p>Crescita di {{this.playerService.civiliDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.civiliProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Crescita di {{this.playerService.civiliDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.civiliProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Crescita di {{this.playerService.civiliDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.civiliProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Crescita di {{this.playerService.civiliDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.civiliProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Crescita di {{this.playerService.civiliDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.civiliProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+            </div>
+          </div>
+            <p>{{this.playerService.civiliDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.civiliDto?.urlImmagine}} alt={{this.playerService.civiliDto?.nomeRisorsa}}>
+            <p>{{this.playerService.civiliDto?.quantitaCorta}}</p>
+          </li>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.bitcoinDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+              <h5>PRODUZIONE:</h5>
+              <p>Aumento di {{this.playerService.bitcoinDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.bitcoinProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Aumento di {{this.playerService.bitcoinDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.bitcoinProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Aumento di {{this.playerService.bitcoinDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.bitcoinProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Aumento di {{this.playerService.bitcoinDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.bitcoinProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Aumento di {{this.playerService.bitcoinDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.bitcoinProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+            </div>
+          </div>
+            <p>{{this.playerService.bitcoinDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.bitcoinDto?.urlImmagine}} alt={{this.playerService.bitcoinDto?.nomeRisorsa}}>
+            <p>{{this.playerService.bitcoinDto?.quantitaCorta}}</p>
+          </li>
+          <li class="tooltip-container">
+            <div class="tooltip-text">
+              <div class="show-res">
+                <h5>QUANTITÀ COMPLETA RISORSA:</h5>
+                <p>{{this.playerService.acquaDto?.quantitaLunga}}</p>
+              </div>
+              <div class="show-prod">
+              <h5>PRODUZIONE:</h5>
+              <p>Produzione di {{this.playerService.acquaDto?.nomeRisorsa | lowercase}} al minuto: {{this.playerService.acquaProd!.produzione | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.acquaDto?.nomeRisorsa | lowercase}} all'ora: {{this.playerService.acquaProd!.produzione * 60 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.acquaDto?.nomeRisorsa | lowercase}} al giorno: {{this.playerService.acquaProd!.produzione * 60 * 24 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.acquaDto?.nomeRisorsa | lowercase}} a settimana: {{this.playerService.acquaProd!.produzione * 60 * 24 * 7 | number: '1.0-0' : 'it-IT'}}</p>
+              <p>Produzione di {{this.playerService.acquaDto?.nomeRisorsa | lowercase}} al mese: {{this.playerService.acquaProd!.produzione * 60 * 24 * 30 | number: '1.0-0' : 'it-IT'}}</p>
+            </div>
+          </div>
+            <p>{{this.playerService.acquaDto?.nomeRisorsa}}</p>
+            <img src={{this.playerService.acquaDto?.urlImmagine}} alt={{this.playerService.acquaDto?.nomeRisorsa}}>
+            <p>{{this.playerService.acquaDto?.quantitaCorta}}</p>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__right">
+        <div class="player fake-button"  routerLink="/player">
+          <p class="nickname">{{this.basicInfoPlayer?.nickname | uppercase}}</p>
+          <p class="lvl">LVL. {{this.basicInfoPlayer?.livello}}</p>
+        </div>
+        <div class="buttons">
+          <div class="chat fake-button"></div>
+          <div class="posta fake-button"></div>
         </div>
 
-        <div class="right-sidebar">
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-          <div class="custom-button">PLACEHOLDER</div>
-        </div>
+      </div>
 
+    </header>
+
+    <div class="content">
+
+      <nav class="content__nav left">
+        <button routerLink="/">SERVER</button>
+        <button routerLink="/home">HOME</button>
+        <button routerLink="/dialog">TECNOLOGIA</button>
+        <button routerLink="/">ARSENALE</button>
+        <button routerLink="/">DIFESA</button>
+        <button routerLink="/">ESERCITO</button>
+        <button routerLink="/">MONDO</button>
+        <button routerLink="/">MISSIONE</button>
+      </nav>
+
+      <div class="content__main">
+        <router-outlet></router-outlet>
+      </div>
+
+      <nav class="content__nav right">
+        <button routerLink="/">CLASSIFICA</button>
+        <button routerLink="/">AMICI</button>
+        <button routerLink="/">ALLEANZA</button>
+        <button routerLink="/">MERCATO</button>
+        <button routerLink="/">STATISTICHE</button>
+        <button routerLink="/">OPZIONI</button>
+      </nav>
     </div>
-</div>
+
+    <div class="events">
+      <h2>Eventi:</h2>
+      <p>E' apparso un gruppo di terroristi vicino alla tua posizione!</p>
+    </div>
+
+  </div>
+
 
 </body>
-</html>

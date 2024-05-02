@@ -2,3 +2,6 @@ body {
   background: url('../src/assets/img/background/bg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

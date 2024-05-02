@@ -1,1 +1,173 @@
-<h2>{{title}}</h2>
+<div class="container">
+
+  <div class="dett" *ngIf="!showDetails">
+    <h1>{{title | uppercase}}</h1>
+  </div>
+  <div class="dett" *ngIf="showDetails" [@fadeInOnEnter]>
+
+    <div class="principale">
+      <div class="img">
+        <img src={{strutturaDettagli?.urlImmagine}} alt={{strutturaDettagli?.nome}}>
+      </div>
+      <div class="info">
+        <h2>{{strutturaDettagli?.nome}}</h2>
+        <p class="centr">Livello: {{strutturaDettagli?.livello | number: '1.0-0' : 'it-IT'}}</p>
+        <p class="centr">Costo:</p>
+        <p *ngFor="let costo of strutturaDettagli?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
+        <p class="centr">Produzione:</p>
+        <div class="prod">
+          <div class="prod-attuale">
+            <p>Produzione Attuale</p>
+            <p *ngFor="let produzione of strutturaDettagli?.produzioneAttuale| keyvalue; let i = index">{{ produzione.key }}: {{produzione.value | number: '1.0-0' : 'it-IT'}} </p>
+          </div>
+          <div class="prod-next">
+            <p>Produzione Prossimo Livello</p>
+            <p *ngFor="let produzione of strutturaDettagli?.produzioneProssimoLivello| keyvalue; let i = index">{{ produzione.key }}: {{produzione.value | number: '1.0-0' : 'it-IT'}} </p>
+          </div>
+        </div>
+        <p class="centr">Chance di successo:</p>
+        <div class="try">
+          <p class="centr">{{strutturaDettagli?.chance}}%</p>
+          <button (click)="tryUp(strutturaDettagli!.id)">Tenta</button>
+          <div *ngIf="chiudiFinestre.tryUpCond" [@fadeInOnEnter] [@fadeOutOnLeave] class="lvl-up">
+            <div class="contenuto" *ngIf="!chiudiFinestre.contenuto">
+              <h2>Vuoi provare ad alzare il livello?</h2>
+              <div class="opzioni">
+                <button (click)="provaAlzaLivello(strutturaDettagli!.id, strutturaDettagli!.nome)">SI</button>
+                <button (click)="chiudiTryUp()">NO</button>
+              </div>
+            </div>
+            <div class="risultatoTry" (click)="chiudiFinestre.chiudiSuccOrFail()">
+              <img *ngIf="chiudiFinestre.fail" [@headShake]="animationState" src="../../assets/img/try/fail.png">
+              <img *ngIf="chiudiFinestre.success" [@heartBeat]="animationState" src="../../assets/img/try/success.png">
+            </div>
+          </div>
+          <div class="errori" *ngIf="chiudiFinestre.errori" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <h2>{{messaggioErrore}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="descrizione">
+      <p>{{strutturaDettagli?.descrizione}}</p>
+    </div>
+
+
+  </div>
+
+  <div class="strutture">
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{nanoChip?.nome}}</p>
+          <img src={{nanoChip?.urlImg}} alt={{nanoChip?.nome}}>
+          <p class="lvl">{{nanoChip?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{silicon?.nome}}</p>
+          <img src={{silicon?.urlImg}} alt={{silicon?.nome}}>
+          <p class="lvl">{{silicon?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{quantumCore?.nome}}</p>
+          <img src={{quantumCore?.urlImg}} alt={{quantumCore?.nome}}>
+          <p class="lvl">{{quantumCore?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{metalForge?.nome}}</p>
+          <img src={{metalForge?.urlImg}} alt={{metalForge?.nome}}>
+          <p class="lvl">{{metalForge?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{steelWorks?.nome}}</p>
+          <img src={{steelWorks?.urlImg}} alt={{steelWorks?.nome}}>
+          <p class="lvl">{{steelWorks?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{alloyTech?.nome}}</p>
+          <img src={{alloyTech?.urlImg}} alt={{alloyTech?.nome}}>
+          <p class="lvl">{{alloyTech?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{eolica?.nome}}</p>
+          <img src={{eolica?.urlImg}} alt={{eolica?.nome}}>
+          <p class="lvl">{{eolica?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{solare?.nome}}</p>
+          <img src={{solare?.urlImg}} alt={{solare?.nome}}>
+          <p class="lvl">{{solare?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{nucleare?.nome}}</p>
+          <img src={{nucleare?.urlImg}} alt={{nucleare?.nome}}>
+          <p class="lvl">{{nucleare?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{appartamento?.nome}}</p>
+          <img src={{appartamento?.urlImg}} alt={{appartamento?.nome}}>
+          <p class="lvl">{{appartamento?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{schiera?.nome}}</p>
+          <img src={{schiera?.urlImg}} alt={{schiera?.nome}}>
+          <p class="lvl">{{schiera?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{villa?.nome}}</p>
+          <img src={{villa?.urlImg}} alt={{villa?.nome}}>
+          <p class="lvl">{{villa?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{cryptoVault?.nome}}</p>
+          <img src={{cryptoVault?.urlImg}} alt={{cryptoVault?.nome}}>
+          <p class="lvl">{{cryptoVault?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{digitalCoin?.nome}}</p>
+          <img src={{digitalCoin?.urlImg}} alt={{digitalCoin?.nome}}>
+          <p class="lvl">{{digitalCoin?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{blockchain?.nome}}</p>
+          <img src={{blockchain?.urlImg}} alt={{blockchain?.nome}}>
+          <p class="lvl">{{blockchain?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{mare?.nome}}</p>
+          <img src={{mare?.urlImg}} alt={{mare?.nome}}>
+          <p class="lvl">{{mare?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{sorgente?.nome}}</p>
+          <img src={{sorgente?.urlImg}} alt={{sorgente?.nome}}>
+          <p class="lvl">{{sorgente?.livello}}</p>
+        </div>
+        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+          <p class="nome">{{fiume?.nome}}</p>
+          <img src={{fiume?.urlImg}} alt={{fiume?.nome}}>
+          <p class="lvl">{{fiume?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

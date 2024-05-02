@@ -52,13 +52,22 @@ export class AuthService {
   }
 
   isExpired() {
-    const user = this.getUser();
-    let isExpired:boolean = Date.now() > new Date(user.exp).getTime() ? true : false;
-    return isExpired;
+    const user:ILoginResponse = this.getUser();
+
+    if( Date.now() > new Date(user.expiration).getTime()) {
+      this.logout();
+      return true;
+    } else {
+      return false;
+    }
   }
 
   isAdmin(): boolean {
     const user = this.getUser();
     return user.role == 'ADMIN' ? true : false;
+  }
+
+  logout() {
+    localStorage.removeItem('auth');
   }
 }
