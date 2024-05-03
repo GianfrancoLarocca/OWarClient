@@ -1,0 +1,74 @@
+
+.container {
+
+}
+
+.titolo {
+  color: #fff;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.scrollable {
+  width: 95%;
+  max-height: 790px; /* Altezza massima dell'elemento */
+  overflow-y: auto; /* Abilita lo scrolling verticale se il contenuto supera l'altezza massima */
+  border: 1px solid #ccc; /* Per visualizzare il bordo dell'elemento */
+  padding: 20px 15px; /* Opzionale: spazio interno per il contenuto */
+  border: none;
+  transition: box-shadow 0.3s ease; /* Aggiunge un effetto di transizione all'ombra sull'overflow */
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 5px; /* Larghezza della barra di scorrimento */
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-color: rgb(45, 3, 49); /* Colore dello sfondo della barra di scorrimento */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 48, 153, 0.842); /* Colore della maniglia della barra di scorrimento */
+}
+
+th {
+
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom-style: double;
+  border-left-style: solid;
+}
+
+tr {
+  color: #ccc;
+}
+
+td {
+  padding: 10px;
+  border-left-style: solid;
+  font-size: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr:hover {
+  background-color: rgba(144, 48, 153, 0.842);
+}
+
+
+@media screen and (max-height: 1080px) {
+  .scrollable {
+    max-height: 620px;
+  }
+}
+
+@media screen and (max-height: 1024px) {
+  .scrollable {
+    max-height: 460px;
+  }
+}

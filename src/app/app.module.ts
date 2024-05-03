@@ -16,6 +16,10 @@ import { PlayerComponent } from './player/player.component';
 import '@angular/common/locales/global/it';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita.component';
+import { KeysPipe } from '../pipes/keys.pipe';
+import { DataItalianaPipe } from '../pipes/data-italiana.pipe';
+
 
 
 
@@ -28,7 +32,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AccountActivationComponent,
     BaseComponent,
     ResetPasswordComponent,
-    PlayerComponent
+    PlayerComponent,
+    RegistroAttivitaComponent,
+    KeysPipe,
+    DataItalianaPipe
 
   ],
   imports: [
@@ -37,7 +44,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

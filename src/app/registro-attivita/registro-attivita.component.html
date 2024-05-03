@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="titolo">REGISTRO ATTIVITÁ</h2>
+  <div class="scrollable">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let key of this.attivita[0] | keys">{{ key | uppercase  }}</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let item of this.attivita">
+            <td>{{ item.data | dataItaliana }}</td>
+            <td>{{ item.azione }}</td>
+            <td>{{ item.descrizione }}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

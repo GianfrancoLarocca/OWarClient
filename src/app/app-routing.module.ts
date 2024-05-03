@@ -9,6 +9,7 @@ import { AccountActivationComponent } from './account-activation/account-activat
 import { BaseComponent } from './base/base.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PlayerComponent } from './player/player.component';
+import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,11 @@ const routes: Routes = [
         path: 'player',
         component: PlayerComponent,
         data: { title: 'player' }
+      },
+      {
+        path: 'registro-attivita',
+        component: RegistroAttivitaComponent,
+        data: { title: 'registro' }
       },
     ]
   },

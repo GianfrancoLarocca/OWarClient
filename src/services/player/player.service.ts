@@ -6,6 +6,7 @@ import { StrutturaDto } from '../../models/struttura-dto';
 import { StrutturaDettDto } from '../../models/struttura-dett-dto';
 import { ProduzioneRisorseDto } from '../../models/produzione-risorse-dto';
 import { BasicDto } from '../../models/basic-dto';
+import { Attivita } from '../../models/attivita';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class PlayerService {
 
   getBasicPlayerInformation() {
     return this.http.get<BasicDto>(`${this.localhostUrl}/basic`);
+  }
+
+  getRegistroAttivita() {
+    return this.http.get<Array<Attivita>>(`${this.localhostUrl}/registro-attivita`);
   }
 
   getRisorse() {
