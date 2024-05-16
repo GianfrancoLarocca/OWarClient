@@ -32,7 +32,6 @@ export class LoginComponent {
       password: this.form.value.password
     };
     this.authService.loginUser(loginUser).subscribe((response: ILoginResponse) => {
-      console.log(response)
       this.loginError = false;;
       localStorage.setItem('auth', JSON.stringify(response));
       this.router.navigate(['home'])
@@ -44,7 +43,6 @@ export class LoginComponent {
   }
 
   resetDati(){
-    console.log("invio email per resettare password!")
     this.router.navigate(["/reset"]);
   }
 

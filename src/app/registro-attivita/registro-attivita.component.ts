@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PlayerService } from '../../services/player/player.service';
 import { Attivita } from '../../models/attivita';
+import { PageAttivita } from '../../models/page-attivita';
 
 
 
@@ -12,13 +13,26 @@ import { Attivita } from '../../models/attivita';
 export class RegistroAttivitaComponent implements OnInit{
 
   playerService = inject(PlayerService);
-  attivita: Array<Attivita> = [];
+  attivita?: PageAttivita;
+
+  pageNumber: number = 0;
+  pageSize: number = 20;
 
   ngOnInit(): void {
-    this.playerService.getRegistroAttivita().subscribe(attivita => {
+    this.playerService.getRegistroAttivita(this.pageNumber, this.pageSize).subscribe(attivita => {
       this.attivita = attivita;
-      console.log(this.attivita);
     })
+  }
+
+  caricaAltriElementi() {
+
+    if(!this.attivita?.last) {
+      this.playerService.getRegistroAttivita(this.pageNumber, this.attivita!.numberOfElements+this.pageSize).subscribe(attivita => {
+        this.attivita = attivita;
+      })
+    }
+
+
   }
 
 

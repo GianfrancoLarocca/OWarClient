@@ -33,12 +33,10 @@ export class RegisterComponent {
     console.log(newUser)
 
     this.authService.registerUser(newUser).subscribe((response: string) => {
-      console.log(response);
       this.router.navigate(['login']);
     },
     err => {
       this.messages = err.error.messages;
-      console.log(this.messages);
     }
     );
   }

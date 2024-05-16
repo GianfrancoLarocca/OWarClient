@@ -19,6 +19,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita.component';
 import { KeysPipe } from '../pipes/keys.pipe';
 import { DataItalianaPipe } from '../pipes/data-italiana.pipe';
+import { ClassificaComponent } from './classifica/classifica.component';
 
 
 
@@ -35,7 +36,8 @@ import { DataItalianaPipe } from '../pipes/data-italiana.pipe';
     PlayerComponent,
     RegistroAttivitaComponent,
     KeysPipe,
-    DataItalianaPipe
+    DataItalianaPipe,
+    ClassificaComponent
 
   ],
   imports: [

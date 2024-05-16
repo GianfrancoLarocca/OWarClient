@@ -1,0 +1,38 @@
+
+<div class="container">
+
+  <h2 class="titolo">CLASSIFICA</h2>
+
+  <div class="buttons">
+    <div class="button" [ngClass]="{ 'selected': this.selected === 'lvl'}" (click)="lvlClassifica()">
+      <img src="../../assets/img/classifica/level.png" alt="Livello">
+      <p class="desc">LIVELLO</p>
+    </div>
+
+    <div class="button" [ngClass]="{ 'selected': this.selected === 'cp'}" (click)="cpClassifica()">
+      <img src="../../assets/img/classifica/flexed-biceps.png" alt="CP">
+      <p class="desc">CP</p>
+    </div>
+  </div>
+
+  <div class="classifica">
+    <div class="head-classifica">
+      <p class="pos">POSIZIONE</p>
+      <p class="head-elements" *ngFor="let key of this.classifica[0] | keys">{{ key | uppercase  }}</p>
+    </div>
+    <div class="body-classifica">
+      <div class="campi-body" (click)="vediPlayer(item.nickname)" *ngFor="let item of this.classifica; let i=index">
+        <p class="pos" [ngClass]="{'evidenzia-player': item.id == this.playerId}">{{i+1}} ({{item.cambioPosizione}})</p>
+        <div class="img" [ngClass]="{'evidenzia-player': item.id == this.playerId}">
+          <img src={{item.img}} alt="User's profile image">
+          <p>{{item.nickname}}</p>
+        </div>
+        <p class="elements" [ngClass]="{'evidenzia-player': item.id == this.playerId}">{{item.livello}}</p>
+        <p class="elements" [ngClass]="{'evidenzia-player': item.id == this.playerId}">{{item.cp}}</p>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

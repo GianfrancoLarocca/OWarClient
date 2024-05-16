@@ -4,16 +4,18 @@
     <table>
       <thead>
         <tr>
-          <th *ngFor="let key of this.attivita[0] | keys">{{ key | uppercase  }}</th>
+          <th *ngFor="let key of this.attivita!.content[0] | keys">{{ key | uppercase  }}</th>
         </tr>
       </thead>
         <tbody>
-          <tr *ngFor="let item of this.attivita">
-            <td>{{ item.data | dataItaliana }}</td>
+          <tr *ngFor="let item of this.attivita?.content">
+            <!-- <td>{{ item.data | dataItaliana }}</td> -->
+            <td>{{ item.data }}</td>
             <td>{{ item.azione }}</td>
             <td>{{ item.descrizione }}</td>
           </tr>
         </tbody>
     </table>
+    <button (click)="caricaAltriElementi()" [disabled]="this.attivita?.last" class="no-anim" [ngClass]="{'no-anim': this.attivita?.last}">carica altri elementi</button>
   </div>
 </div>

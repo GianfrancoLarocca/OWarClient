@@ -21,7 +21,7 @@
             <p *ngFor="let produzione of strutturaDettagli?.produzioneAttuale| keyvalue; let i = index">{{ produzione.key }}: {{produzione.value | number: '1.0-0' : 'it-IT'}} </p>
           </div>
           <div class="prod-next">
-            <p>Produzione Prossimo Livello</p>
+            <p>Prossimo Livello</p>
             <p *ngFor="let produzione of strutturaDettagli?.produzioneProssimoLivello| keyvalue; let i = index">{{ produzione.key }}: {{produzione.value | number: '1.0-0' : 'it-IT'}} </p>
           </div>
         </div>
@@ -59,34 +59,34 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': nanoChip?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{nanoChip?.nome}}</p>
           <img src={{nanoChip?.urlImg}} alt={{nanoChip?.nome}}>
           <p class="lvl">{{nanoChip?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': silicon?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{silicon?.nome}}</p>
           <img src={{silicon?.urlImg}} alt={{silicon?.nome}}>
           <p class="lvl">{{silicon?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': quantumCore?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{quantumCore?.nome}}</p>
           <img src={{quantumCore?.urlImg}} alt={{quantumCore?.nome}}>
           <p class="lvl">{{quantumCore?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': metalForge?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{metalForge?.nome}}</p>
           <img src={{metalForge?.urlImg}} alt={{metalForge?.nome}}>
           <p class="lvl">{{metalForge?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': steelWorks?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{steelWorks?.nome}}</p>
           <img src={{steelWorks?.urlImg}} alt={{steelWorks?.nome}}>
           <p class="lvl">{{steelWorks?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': alloyTech?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{alloyTech?.nome}}</p>
           <img src={{alloyTech?.urlImg}} alt={{alloyTech?.nome}}>
           <p class="lvl">{{alloyTech?.livello}}</p>
@@ -96,34 +96,34 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': eolica?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{eolica?.nome}}</p>
           <img src={{eolica?.urlImg}} alt={{eolica?.nome}}>
           <p class="lvl">{{eolica?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': solare?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{solare?.nome}}</p>
           <img src={{solare?.urlImg}} alt={{solare?.nome}}>
           <p class="lvl">{{solare?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': nucleare?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{nucleare?.nome}}</p>
           <img src={{nucleare?.urlImg}} alt={{nucleare?.nome}}>
           <p class="lvl">{{nucleare?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': appartamento?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{appartamento?.nome}}</p>
           <img src={{appartamento?.urlImg}} alt={{appartamento?.nome}}>
           <p class="lvl">{{appartamento?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': schiera?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{schiera?.nome}}</p>
           <img src={{schiera?.urlImg}} alt={{schiera?.nome}}>
           <p class="lvl">{{schiera?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': villa?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{villa?.nome}}</p>
           <img src={{villa?.urlImg}} alt={{villa?.nome}}>
           <p class="lvl">{{villa?.livello}}</p>
@@ -133,34 +133,34 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': cryptoVault?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{cryptoVault?.nome}}</p>
           <img src={{cryptoVault?.urlImg}} alt={{cryptoVault?.nome}}>
           <p class="lvl">{{cryptoVault?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': digitalCoin?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{digitalCoin?.nome}}</p>
           <img src={{digitalCoin?.urlImg}} alt={{digitalCoin?.nome}}>
           <p class="lvl">{{digitalCoin?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': blockchain?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{blockchain?.nome}}</p>
           <img src={{blockchain?.urlImg}} alt={{blockchain?.nome}}>
           <p class="lvl">{{blockchain?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': mare?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{mare?.nome}}</p>
           <img src={{mare?.urlImg}} alt={{mare?.nome}}>
           <p class="lvl">{{mare?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': sorgente?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{sorgente?.nome}}</p>
           <img src={{sorgente?.urlImg}} alt={{sorgente?.nome}}>
           <p class="lvl">{{sorgente?.livello}}</p>
         </div>
-        <div class="struttura" tabindex="0" (click)="showDetailsMethod($event.target)">
+        <div class="struttura" [ngClass]="{ 'selected': fiume?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod($event.currentTarget)">
           <p class="nome">{{fiume?.nome}}</p>
           <img src={{fiume?.urlImg}} alt={{fiume?.nome}}>
           <p class="lvl">{{fiume?.livello}}</p>

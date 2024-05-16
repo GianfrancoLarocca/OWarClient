@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { StrutturaDto } from '../../models/struttura-dto';
 import { PlayerService } from '../../services/player/player.service';
 import { StrutturaDettDto } from '../../models/struttura-dett-dto';
@@ -65,34 +65,41 @@ export class HomeComponent implements OnInit{
   caricaStrutture() {
     this.playerService.getStrutture().subscribe(strutture => {
       this.struttureDto = strutture;
+
       this.nanoChip = this.struttureDto.find(struttura => struttura.nome === "NanoChip Technologies");
       this.silicon = this.struttureDto.find(struttura => struttura.nome === "Silicon Forge Solutions");
       this.quantumCore = this.struttureDto.find(struttura => struttura.nome === "QuantumCore Semiconductor");
+
       this.metalForge = this.struttureDto.find(struttura => struttura.nome === "MetalForge Industries");
       this.steelWorks = this.struttureDto.find(struttura => struttura.nome === "SteelWorks Corporation");
       this.alloyTech = this.struttureDto.find(struttura => struttura.nome === "AlloyTech Solutions");
+
       this.nucleare = this.struttureDto.find(struttura => struttura.nome === "Nucleare");
       this.solare = this.struttureDto.find(struttura => struttura.nome === "Solare");
       this.eolica = this.struttureDto.find(struttura => struttura.nome === "Eolica");
+
       this.appartamento = this.struttureDto.find(struttura => struttura.nome === "Appartamento");
       this.schiera = this.struttureDto.find(struttura => struttura.nome === "Casa a schiera");
       this.villa = this.struttureDto.find(struttura => struttura.nome === "Villa");
+
       this.cryptoVault = this.struttureDto.find(struttura => struttura.nome === "CryptoVault Bank");
       this.digitalCoin = this.struttureDto.find(struttura => struttura.nome === "DigitalCoin Bank");
       this.blockchain = this.struttureDto.find(struttura => struttura.nome === "Blockchain Trust Group");
+
       this.mare = this.struttureDto.find(struttura => struttura.nome === "Mare");
       this.sorgente = this.struttureDto.find(struttura => struttura.nome === "Sorgente");
       this.fiume = this.struttureDto.find(struttura => struttura.nome === "Fiume");
     })
   }
 
-  public showDetailsMethod(nomeStruttura: any) {
+  public showDetailsMethod(div: any) {
 
+    let nomeStruttura = div.querySelector('img').alt;
 
-    if (nomeStruttura.alt != undefined) {
+    if (nomeStruttura != undefined) {
       this.showDetails = true
 
-      this.getStrutturaDettagli(nomeStruttura.alt);
+      this.getStrutturaDettagli(nomeStruttura);
     }
 
   }
@@ -100,16 +107,13 @@ export class HomeComponent implements OnInit{
   getStrutturaDettagli(nomeStruttura:string) {
     this.playerService.getStrutturaDett(nomeStruttura).subscribe(strutturaDett => {
       this.strutturaDettagli = strutturaDett;
-      console.log(this.strutturaDettagli)
     })
   }
-
 
   messaggioErrore:string = '';
   tryUp(id: number) {
 
     this.playerService.canPay(id).subscribe(risultato => {
-      console.log('Can Pay?', risultato);
 
       if(risultato) {
         this.chiudiFinestre.tryUpCond = true;
@@ -134,7 +138,6 @@ export class HomeComponent implements OnInit{
 
   public provaAlzaLivello(id: number, nomeStruttura:string) {
     this.playerService.provaAlzaLivello(id).subscribe(ris => {
-      console.log(ris);
       this.risultatoTry(nomeStruttura, true);
     },
     () => {
@@ -151,6 +154,7 @@ export class HomeComponent implements OnInit{
       this.caricaStrutture();
       this.getStrutturaDettagli(nomeStruttura);
       this.playerService.getProduzioneRisorse();
+      this.playerService.getBasicPlayerInformation();
     } else {
       this.chiudiFinestre.success = false;
       this.chiudiFinestre.fail = true;

@@ -7,6 +7,9 @@ import { StrutturaDettDto } from '../../models/struttura-dett-dto';
 import { ProduzioneRisorseDto } from '../../models/produzione-risorse-dto';
 import { BasicDto } from '../../models/basic-dto';
 import { Attivita } from '../../models/attivita';
+import { PageAttivita } from '../../models/page-attivita';
+import { Classifica } from '../../models/classifica';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +18,18 @@ export class PlayerService {
 
     //backend url
     localhostUrl: string = 'http://localhost:7070/api/player';
+    localClassificaUrl:string = 'http://localhost:7070/api/classifica'
 
     //dependencies
     http = inject(HttpClient);
-    router = inject(Router)
+    router = inject(Router);
+    auth = inject(AuthService);
 
     //general fields
+
+    basicInfoPlayer?:BasicDto;
+    progressPercentage: number = 0;
+
     public risorseDto: Array<RisorsaDto> = [];
 
     public microchipDto?: RisorsaDto;
@@ -41,12 +50,34 @@ export class PlayerService {
 
   constructor() { }
 
-  getBasicPlayerInformation() {
-    return this.http.get<BasicDto>(`${this.localhostUrl}/basic`);
+  updateExpBar() {
+
+    //var esperienzaIniziale = this.basicInfoPlayer!.expStartLvl;
+    var esperienzaIniziale = 0;
+    var esperienzaAttuale = this.basicInfoPlayer!.exp;
+    var esperienzaProssimoLivello = this.basicInfoPlayer!.expNextLevel;
+
+    var diffProssimoLivello = esperienzaProssimoLivello - esperienzaIniziale;
+
+    var diffLivelloPrecedente = esperienzaAttuale - esperienzaIniziale;
+
+    var lunghezzaBarraEsperienza = diffLivelloPrecedente / diffProssimoLivello * 100;
+    this.progressPercentage = lunghezzaBarraEsperienza;
   }
 
-  getRegistroAttivita() {
-    return this.http.get<Array<Attivita>>(`${this.localhostUrl}/registro-attivita`);
+  getBasicPlayerInformation() {
+    this.http.get<BasicDto>(`${this.localhostUrl}/basic`).subscribe(risposta => {
+      this.basicInfoPlayer = risposta;
+      this.updateExpBar();
+    });
+  }
+
+  getBasicPlayerInformationByPlayerNickname(nickname:string) {
+    return this.http.get<BasicDto>(`${this.localhostUrl}/basic/${nickname}`);
+  }
+
+  getRegistroAttivita(pageN:number, pageSize:number) {
+    return this.http.get<PageAttivita>(`${this.localhostUrl}/registro-attivita/${pageN}/${pageSize}`);
   }
 
   getRisorse() {
@@ -58,11 +89,20 @@ export class PlayerService {
       this.civiliDto = this.risorseDto.find(risorsa => risorsa.nomeRisorsa === "CIVILI");
       this.bitcoinDto = this.risorseDto.find(risorsa => risorsa.nomeRisorsa === "BITCOIN");
       this.acquaDto = this.risorseDto.find(risorsa => risorsa.nomeRisorsa === "ACQUA");
-    });
+    },
+    err => {
+      console.error(err);
+      this.auth.logout();
+    }
+    );
   }
 
   getStrutture() {
     return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/strutture`);
+  }
+
+  getStruttureByNickname(nickname:string) {
+    return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/strutture/${nickname}`);
   }
 
   getStrutturaDett(nomeStruttura:string) {
@@ -87,5 +127,13 @@ export class PlayerService {
 
   canPay(sviluppoId: number) {
     return this.http.get<Boolean>(`${this.localhostUrl}/strutture/id/${sviluppoId}/canpay`)
+  }
+
+  getClassificaLivello() {
+    return this.http.get<Array<Classifica>>(`${this.localClassificaUrl}/livello`);
+  }
+
+  getClassificaCp() {
+    return this.http.get<Array<Classifica>>(`${this.localClassificaUrl}/cp`);
   }
 }

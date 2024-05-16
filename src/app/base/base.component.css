@@ -26,7 +26,7 @@
   text-align: center;
 }
 .risorse li:hover {
-  cursor: pointer;
+  cursor: auto;
 }
 
 .tooltip-container {
@@ -45,7 +45,7 @@
   padding: 5px;
   position: absolute;
   z-index: 1;
-  top: 80%;
+  top: 60%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -95,16 +95,37 @@
   flex-direction: row-reverse;
 }
 
+
 .player {
-  background-image: url('../../assets/img/buttons/new-button.png');
-  background-size: 350px;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../assets/img/player/f.png');
+  background-size: 340px 125px;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: transparent;
-  width: 270px;
-  height: 60px;
+  width: 340px;
+  height: 119px;
   color: #fff;
+  /*background-color: rgb(103 10 235 / 10%);*/
+  filter: brightness(130%);
 }
+
+.progress-bar {
+  width: 65%;
+  height: 8px;
+  background-color: rgb(136 127 180);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0%;
+  height: 8px;
+  background-color: rgb(51 80 239);
+  border-radius: 4px;
+  transition: width 0.5s linear;
+}
+
 
 .fake-button:hover {
   cursor: pointer;
@@ -112,18 +133,47 @@
 }
 
 .header .player p{
-  text-align: center;
   margin: 0;
 }
 
 .header .player .nickname {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bolder;
-  padding-top: 14px;
+  max-width: 50%;
+}
+
+.header .player .nick-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 0 40px;
+}
+
+.header .player .player-img {
+  height: 64px;
+  width: 64px;
+  background-image: url('../../assets/img/player/user.png');
+  background-size: 64px 64px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header .player .lvl {
-  font-size: 10px;
+  font-size: 12px;
+}
+
+.header .player .lvl-exp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px 0 40px;
+}
+
+.header .player .cp {
+  padding-top: 6px;
+  font-size: 14px;
 }
 
 .header .posta {
@@ -149,8 +199,8 @@
 .content {
   display: flex;
   flex-direction: row;
-  height: 920px;
-  margin-top: 1%;
+  height: 1020px;
+  margin-top: 0.5%;
 }
 
 .content__nav {
@@ -224,8 +274,8 @@
   .content {
     display: flex;
     flex-direction: row;
-    height: 750px;
-    margin-top: 1%;
+    height: 840px;
+    margin-top: 0.3%;
   }
 
   .risorse img {

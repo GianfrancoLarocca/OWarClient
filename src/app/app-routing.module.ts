@@ -10,6 +10,7 @@ import { BaseComponent } from './base/base.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { PlayerComponent } from './player/player.component';
 import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita.component';
+import { ClassificaComponent } from './classifica/classifica.component';
 
 const routes: Routes = [
 
@@ -31,12 +32,22 @@ const routes: Routes = [
       {
         path: 'player',
         component: PlayerComponent,
-        data: { title: 'player' }
+        data: { title: 'player' },
+      },
+      {
+        path: 'player/:nickname',
+        component: PlayerComponent,
+        data: { title: 'player' },
       },
       {
         path: 'registro-attivita',
         component: RegistroAttivitaComponent,
         data: { title: 'registro' }
+      },
+      {
+        path: 'classifica',
+        component: ClassificaComponent,
+        data: { title: 'classifica' }
       },
     ]
   },

@@ -1,6 +1,8 @@
 
 .container {
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .titolo {
@@ -10,8 +12,11 @@
 }
 
 .scrollable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 95%;
-  max-height: 790px; /* Altezza massima dell'elemento */
+  max-height: 875px; /* Altezza massima dell'elemento */
   overflow-y: auto; /* Abilita lo scrolling verticale se il contenuto supera l'altezza massima */
   border: 1px solid #ccc; /* Per visualizzare il bordo dell'elemento */
   padding: 20px 15px; /* Opzionale: spazio interno per il contenuto */
@@ -48,7 +53,7 @@ tr {
 td {
   padding: 10px;
   border-left-style: solid;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 table {
@@ -60,10 +65,33 @@ tr:hover {
   background-color: rgba(144, 48, 153, 0.842);
 }
 
+.scrollable button {
+  margin-top: 5%;
+  width: 50%;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.scrollable button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.scrollable button.no-anim:hover {
+  cursor: not-allowed;
+  transform: none;
+}
+
 
 @media screen and (max-height: 1080px) {
   .scrollable {
-    max-height: 620px;
+    max-height: 700px;
+  }
+
+  td {
+    padding: 10px;
+    border-left-style: solid;
+    font-size: 14px;
   }
 }
 
