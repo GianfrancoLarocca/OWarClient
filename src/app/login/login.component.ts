@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IUserReg } from '../../interfaces/i-user-reg';
 import { Router } from '@angular/router';
 import { ILoginResponse } from '../../interfaces/i-login-response';
+import { IUserLogin } from '../../interfaces/i-user-login';
 
 
 @Component({
@@ -23,13 +24,25 @@ export class LoginComponent {
   form = this.fb.nonNullable.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
+    expTime: ['', Validators.required],
   });
 
 
   onSubmit(){
-    const loginUser: IUserReg = <IUserReg>{
+
+    let exp = '';
+    if(this.form.value.expTime) {
+      exp = 'week';
+      console.log(exp)
+    } else {
+      exp = 'day'
+      console.log(exp)
+    }
+
+    const loginUser: IUserLogin = <IUserLogin>{
       username: this.form.value.username,
-      password: this.form.value.password
+      password: this.form.value.password,
+      expTime: exp
     };
     this.authService.loginUser(loginUser).subscribe((response: ILoginResponse) => {
       this.loginError = false;;

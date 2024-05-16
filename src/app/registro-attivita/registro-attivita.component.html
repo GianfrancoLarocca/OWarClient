@@ -1,21 +1,38 @@
 <div class="container">
+
   <h2 class="titolo">REGISTRO ATTIVITÁ</h2>
-  <div class="scrollable">
-    <table>
-      <thead>
-        <tr>
-          <th *ngFor="let key of this.attivita!.content[0] | keys">{{ key | uppercase  }}</th>
-        </tr>
-      </thead>
-        <tbody>
-          <tr *ngFor="let item of this.attivita?.content">
-            <!-- <td>{{ item.data | dataItaliana }}</td> -->
-            <td>{{ item.data }}</td>
-            <td>{{ item.azione }}</td>
-            <td>{{ item.descrizione }}</td>
-          </tr>
-        </tbody>
-    </table>
-    <button (click)="caricaAltriElementi()" [disabled]="this.attivita?.last" class="no-anim" [ngClass]="{'no-anim': this.attivita?.last}">carica altri elementi</button>
+
+  <div class="buttons">
+    <div class="button" [ngClass]="{ 'selected': this.selected === 'tutto'}" (click)="regTutto()">
+      <img src="../../assets/img/registro/all.png" alt="tutto">
+      <p class="desc">TUTTO</p>
+    </div>
+
+    <div class="button" [ngClass]="{ 'selected': this.selected === 'upgrade'}" (click)="regUp()">
+      <img src="../../assets/img/registro/up.png" alt="upgrade">
+      <p class="desc">UPGRADE</p>
+    </div>
+
+    <div class="button" [ngClass]="{ 'selected': this.selected === 'battaglie'}" (click)="regBattaglie()">
+      <img src="../../assets/img/registro/battle.png" alt="battaglie">
+      <p class="desc">BATTAGLIE</p>
+    </div>
+  </div>
+
+  <div class="classifica">
+    <div class="head-classifica">
+      <!-- <p class="head-elements" *ngFor="let key of this.attivita!.content[0] | keys">{{ key | uppercase  }}</p> -->
+      <p class="head-elements">Data</p>
+      <p class="head-elements">Azione</p>
+      <p class="head-elements-desc">Descrizione</p>
+    </div>
+    <div class="body-classifica">
+      <div class="campi-body" *ngFor="let item of this.attivita?.content">
+        <p class="elements">{{item.data}}</p>
+        <p class="elements">{{item.azione}}</p>
+        <p class="elements-desc">{{item.descrizione}}</p>
+      </div>
+      <button (click)="caricaAltriElementi()" [disabled]="this.attivita?.last" class="no-anim" [ngClass]="{'no-anim': this.attivita?.last}">carica altri elementi</button>
+    </div>
   </div>
 </div>

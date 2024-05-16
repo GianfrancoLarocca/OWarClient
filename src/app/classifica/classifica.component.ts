@@ -27,17 +27,21 @@ export class ClassificaComponent implements OnInit{
   }
 
   lvlClassifica() {
-    this.selected = 'lvl';
-    this.playerService.getClassificaLivello().subscribe(risposta => {
-      this.classifica = risposta;
-    })
+    if(this.selected !== 'lvl') {
+      this.selected = 'lvl';
+      this.playerService.getClassificaLivello().subscribe(risposta => {
+        this.classifica = risposta;
+      })
+    }
   }
 
   cpClassifica() {
-    this.selected = 'cp';
-    this.playerService.getClassificaCp().subscribe(risposta => {
-      this.classifica = risposta;
-    })
+    if(this.selected !== 'cp') {
+      this.selected = 'cp';
+      this.playerService.getClassificaCp().subscribe(risposta => {
+        this.classifica = risposta;
+      })
+    }
   }
 
   vediPlayer(playerNickname:string) {

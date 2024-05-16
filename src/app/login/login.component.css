@@ -82,3 +82,15 @@ body {
   border-top: solid 1px #fff;
   padding: 20px 10px;
 }
+
+.login-container .checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.login-container .checkbox-label input[type="checkbox"] {
+  margin: 0 8px 0 0;
+  width: max-content;
+}
