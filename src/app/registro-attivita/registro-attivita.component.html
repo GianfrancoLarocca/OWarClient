@@ -19,14 +19,14 @@
     </div>
   </div>
 
-  <div class="classifica">
-    <div class="head-classifica">
+  <div class="registro">
+    <div class="head-registro">
       <!-- <p class="head-elements" *ngFor="let key of this.attivita!.content[0] | keys">{{ key | uppercase  }}</p> -->
       <p class="head-elements">Data</p>
       <p class="head-elements">Azione</p>
       <p class="head-elements-desc">Descrizione</p>
     </div>
-    <div class="body-classifica">
+    <div class="body-registro">
       <div class="campi-body" *ngFor="let item of this.attivita?.content">
         <p class="elements">{{item.data}}</p>
         <p class="elements">{{item.azione}}</p>

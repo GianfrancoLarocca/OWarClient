@@ -51,12 +51,12 @@
   text-align: center;
 }
 
-.classifica {
+.registro {
   display: flex;
   flex-direction: column;
 }
 
-.classifica .head-classifica {
+.registro .head-registro {
   display: flex;
   flex-direction: row;
 
@@ -65,7 +65,7 @@
   height: max-content;
 }
 
-.classifica .head-classifica .pos {
+.registro .head-registro .pos {
   color: #fff;
   font-weight: bolder;
   min-width: 20%;
@@ -75,7 +75,7 @@
   border-left-style: solid;
 }
 
-.classifica .head-classifica .head-elements {
+.registro .head-registro .head-elements {
   color: #fff;
   font-weight: bolder;
   min-width: 25%;
@@ -85,7 +85,7 @@
   border-left-style: solid;
 }
 
-.classifica .head-classifica .head-elements-desc {
+.registro .head-registro .head-elements-desc {
   color: #fff;
   font-weight: bolder;
   min-width: 45%;
@@ -96,7 +96,7 @@
   padding: 0 1%;
 }
 
-.classifica .body-classifica .campi-body .pos {
+.registro .body-registro .campi-body .pos {
   color: #fff;
   min-width: 20%;
   height: 32px;
@@ -106,7 +106,7 @@
   border-left-style: solid;
 }
 
-.classifica .body-classifica .campi-body .elements {
+.registro .body-registro .campi-body .elements {
   color: #fff;
   text-align: center;
   font-size: 16px;
@@ -115,7 +115,7 @@
   min-width: 25%;
 }
 
-.classifica .body-classifica .campi-body .elements-desc {
+.registro .body-registro .campi-body .elements-desc {
   color: #fff;
   text-align: center;
   font-size: 16px;
@@ -125,35 +125,35 @@
   padding: 5px 1%;
 }
 
-.classifica .body-classifica {
+.registro .body-registro {
   max-height: 720px;
   overflow-y: auto;
   transition: box-shadow 0.3s ease;
 }
 
-.classifica .body-classifica::-webkit-scrollbar {
+.registro .body-registro::-webkit-scrollbar {
   width: 5px; /* Larghezza della barra di scorrimento */
 }
 
-.classifica .body-classifica::-webkit-scrollbar-track {
+.registro .body-registro::-webkit-scrollbar-track {
   background-color: rgb(45, 3, 49); /* Colore dello sfondo della barra di scorrimento */
 }
 
-.classifica .body-classifica::-webkit-scrollbar-thumb {
+.registro .body-registro::-webkit-scrollbar-thumb {
   background-color: rgba(144, 48, 153, 0.842); /* Colore della maniglia della barra di scorrimento */
 }
 
-.classifica .body-classifica .campi-body{
+.registro .body-registro .campi-body{
   display: flex;
   flex-direction: row;
 }
 
-.classifica .body-classifica .campi-body:hover {
+.registro .body-registro .campi-body:hover {
   background-color: rgb(32 62 117);
   cursor: pointer;
 }
 
-.classifica .body-classifica .campi-body p {
+.registro .body-registro .campi-body p {
   padding: 5px 0px 0 0;
 }
 
@@ -162,7 +162,7 @@ p {
   width: 100%;
 }
 
-.classifica .body-classifica button {
+.registro .body-registro button {
   margin-top: 5%;
   margin-left: 25%;
   width: 50%;
@@ -170,12 +170,12 @@ p {
   transition: transform 0.3s ease;
 }
 
-.classifica .body-classifica button:hover {
+.registro .body-registro button:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
 
-.classifica .body-classifica button.no-anim:hover {
+.registro .body-registro button.no-anim:hover {
   cursor: not-allowed;
   transform: none;
 }
