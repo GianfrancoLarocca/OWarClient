@@ -5,3 +5,24 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.custom-snackbar {
+  --mdc-snackbar-container-color: rgb(44, 44, 44);
+}
+
+/* Stile personalizzato per la snackbar */
+.custom-snackbar .mat-mdc-snackbar-container {
+  background-color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+/* Stile personalizzato per il testo di supporto */
+.custom-snackbar .mdc-snackbar__label {
+  color: rgb(255, 255, 255) !important;
+}
+
+/* Stile personalizzato per il bottone */
+.custom-snackbar .mdc-snackbar__action {
+  color: rgb(255, 255, 255) !important;
+}

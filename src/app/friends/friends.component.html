@@ -1,0 +1,43 @@
+<div class="container">
+
+  <h2 class="titolo">AMICI</h2>
+
+  <div class="amici">
+    <div id="richieste">
+      <button routerLink="/friend-requests">Richieste di amicizia</button>
+    </div>
+    <div class="head-amici">
+      <p class="head-elements-nickname">Nickname</p>
+      <p class="head-elements">Livello</p>
+      <p class="head-elements">CP</p>
+      <p class="head-elements">Azioni</p>
+    </div>
+    <div class="body-amici">
+      <div class="campi-body" *ngFor="let item of this.friends">
+        <div class="img" (click)="vediPlayer(item.basicInformation.nickname)">
+          <img src={{item.basicInformation.urlImmagine}} alt="User's profile image">
+          <p>{{item.basicInformation.nickname}}</p>
+        </div>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.livello}}</p>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.cp}}</p>
+        <div class="img-act">
+          <mat-icon class="icona-material" title="Rimuovi amico" (click)="rimuoviAmicoDialog(item.id)">person_remove</mat-icon>
+          <mat-icon class="icona-material"  title="Profilo giocatore" (click)="vediPlayer(item.basicInformation.nickname)">visibility</mat-icon>
+          <mat-icon class="icona-material"  title="Invia un messaggio">chat</mat-icon>
+          <mat-icon class="icona-material"  title="Segnala giocatore">report</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="cercaPlayer()">Cerca player</button>
+  </div>
+
+  <div class="rimuovi-amico-dialog" *ngIf="this.rimuoviAmicoDialogo">
+    <p>Sei sicuro di voler rimuovere un tuo amico?</p>
+    <button (click)="rimuoviAmicoSi()">Si</button>
+    <button (click)="rimuoviAmicoAnnulla()">annulla</button>
+  </div>
+
+</div>

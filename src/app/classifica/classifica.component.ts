@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './classifica.component.html',
   styleUrl: './classifica.component.css'
 })
-export class ClassificaComponent implements OnInit{
+export class ClassificaComponent implements OnInit {
 
   playerService = inject(PlayerService);
   router = inject(Router);

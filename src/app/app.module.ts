@@ -20,8 +20,12 @@ import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita
 import { KeysPipe } from '../pipes/keys.pipe';
 import { DataItalianaPipe } from '../pipes/data-italiana.pipe';
 import { ClassificaComponent } from './classifica/classifica.component';
-
-
+import { FriendsComponent } from './friends/friends.component';
+import { SearchPlayerComponent } from './search-player/search-player.component';
+import { MatIconModule } from '@angular/material/icon';
+import { NotificationComponent } from './notification/notification.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { ClassificaComponent } from './classifica/classifica.component';
     RegistroAttivitaComponent,
     KeysPipe,
     DataItalianaPipe,
-    ClassificaComponent
+    ClassificaComponent,
+    FriendsComponent,
+    SearchPlayerComponent,
+    NotificationComponent,
+    FriendRequestsComponent
 
   ],
   imports: [
@@ -46,7 +54,9 @@ import { ClassificaComponent } from './classifica/classifica.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [
     {
@@ -59,4 +69,6 @@ import { ClassificaComponent } from './classifica/classifica.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

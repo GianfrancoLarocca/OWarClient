@@ -11,6 +11,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PlayerComponent } from './player/player.component';
 import { RegistroAttivitaComponent } from './registro-attivita/registro-attivita.component';
 import { ClassificaComponent } from './classifica/classifica.component';
+import { FriendsComponent } from './friends/friends.component';
+import { SearchPlayerComponent } from './search-player/search-player.component';
+import { NotificationComponent } from './notification/notification.component';
+import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 
 const routes: Routes = [
 
@@ -48,6 +52,26 @@ const routes: Routes = [
         path: 'classifica',
         component: ClassificaComponent,
         data: { title: 'classifica' }
+      },
+      {
+        path: 'friends',
+        component: FriendsComponent,
+        data: { title: 'friends' }
+      },
+      {
+        path: 'friend-requests',
+        component: FriendRequestsComponent,
+        data: { title: 'friend-requests' }
+      },
+      {
+        path: 'search-player',
+        component: SearchPlayerComponent,
+        data: { title: 'search-player' }
+      },
+      {
+        path: 'notification',
+        component: NotificationComponent,
+        data: { title: 'notification' }
       },
     ]
   },

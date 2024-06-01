@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h2 class="titolo">NOTIFICHE</h2>
+
+  <div class="notifiche">
+
+    <div class="body-notifiche">
+      <div class="campi-body" *ngFor="let item of this.notifications">
+        <p class="elements data-element">{{item.data}}</p>
+        <p class="elements message-element">{{item.message}}</p>
+        <div class="img-act">
+          <div  *ngIf="!this.sceltaFattaIds.includes(item.senderId) && item.notificationType === 'friend-request'">
+            <mat-icon class="icona-material" title="Accetta richiesta d'amicizia" (click)="openDialog('accept', item.senderId)">done_outline</mat-icon>
+            <mat-icon class="icona-material"  title="Rifiuta richiesta d'amicizia" (click)="openDialog('reject', item.senderId)">close</mat-icon>
+          </div>
+          <mat-icon class="icona-material" title="Scelta fatta!" *ngIf="this.sceltaFattaIds.includes(item.senderId) && item.notificationType !== 'friend-request-accepted'">check_circle</mat-icon>
+          <mat-icon class="icona-material" title="Nuovo amico" *ngIf="item.notificationType === 'friend-request-accepted'">group</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rimuovi-amico-dialog" *ngIf="this.dialog">
+    <p>{{this.phrase}}</p>
+    <button (click)="si()">Si</button>
+    <button (click)="annulla()">annulla</button>
+  </div>
+
+</div>

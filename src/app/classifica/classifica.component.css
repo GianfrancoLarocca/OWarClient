@@ -4,7 +4,7 @@
   text-align: center;
   margin: 20px auto;
   font-weight: bolder;
-  font-size: 22px;
+  font-size: 30px;
 }
 
 .container .buttons {
@@ -104,8 +104,8 @@
 }
 
 .classifica .body-classifica {
-  max-height: 720px;
-  overflow-y: auto;
+  max-height: 760px;
+  overflow-y: scroll;
   transition: box-shadow 0.3s ease;
 }
 

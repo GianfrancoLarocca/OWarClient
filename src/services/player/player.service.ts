@@ -6,10 +6,10 @@ import { StrutturaDto } from '../../models/struttura-dto';
 import { StrutturaDettDto } from '../../models/struttura-dett-dto';
 import { ProduzioneRisorseDto } from '../../models/produzione-risorse-dto';
 import { BasicDto } from '../../models/basic-dto';
-import { Attivita } from '../../models/attivita';
 import { PageAttivita } from '../../models/page-attivita';
 import { Classifica } from '../../models/classifica';
 import { AuthService } from '../auth/auth.service';
+import { PlayerNotification } from '../../models/player-notification';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +72,14 @@ export class PlayerService {
     });
   }
 
+  getPlayer() {
+    return this.http.get<any>(`${this.localhostUrl}`);
+  }
+
+  getNotifications() {
+    return this.http.get<Array<PlayerNotification>>(`${this.localhostUrl}/notifications`);
+  }
+
   getBasicPlayerInformationByPlayerNickname(nickname:string) {
     return this.http.get<BasicDto>(`${this.localhostUrl}/basic/${nickname}`);
   }
@@ -122,11 +130,11 @@ export class PlayerService {
   }
 
   provaAlzaLivello(sviluppoId: number) {
-    return this.http.get(`${this.localhostUrl}/strutture/id/${sviluppoId}/alzalivello`, { responseType: 'text' })
+    return this.http.get(`${this.localhostUrl}/strutture/id/${sviluppoId}/alzalivello`, { responseType: 'text' });
   }
 
   canPay(sviluppoId: number) {
-    return this.http.get<Boolean>(`${this.localhostUrl}/strutture/id/${sviluppoId}/canpay`)
+    return this.http.get<Boolean>(`${this.localhostUrl}/strutture/id/${sviluppoId}/canpay`);
   }
 
   getClassificaLivello() {
@@ -135,5 +143,41 @@ export class PlayerService {
 
   getClassificaCp() {
     return this.http.get<Array<Classifica>>(`${this.localClassificaUrl}/cp`);
+  }
+
+  getFriends() {
+    return this.http.get<Array<any>>(`${this.localhostUrl}/friends`);
+  }
+
+  getFriendsIds() {
+    return this.http.get<Array<number>>(`${this.localhostUrl}/friends/ids`);
+  }
+
+  getSentFriendRequests() {
+    return this.http.get<Array<number>>(`${this.localhostUrl}/friend-requests/ids`);
+  }
+
+  getReceivedFriendRequests() {
+    return this.http.get<Array<any>>(`${this.localhostUrl}/received-friend-requests`);
+  }
+
+  addFriend(id:number) {
+    return this.http.post<boolean>(`${this.localhostUrl}/friend/add/${id}`, {})
+  }
+
+  removeFriend(id:number) {
+    return this.http.post<boolean>(`${this.localhostUrl}/friend/remove/${id}`, {})
+  }
+
+  cercaPlayer(nickname:string) {
+    return this.http.get<any>(`${this.localhostUrl}/find/${nickname}`);
+  }
+
+  sendFriendRequest(playerId:number) {
+    return this.http.get<boolean>(`${this.localhostUrl}/send-friend-request/${playerId}`);
+  }
+
+  friendRequestChose(playerId:number) {
+    return this.http.get<boolean>(`${this.localhostUrl}/friend-request-chose/${playerId}`);
   }
 }

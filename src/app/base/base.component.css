@@ -176,26 +176,6 @@
   font-size: 14px;
 }
 
-.header .posta {
-  background-image: url('../../assets/img/buttons/email.png');
-  background-size: 64px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  width: 64px;
-  height: 64px;
-}
-
-.header .chat {
-  background-image: url('../../assets/img/buttons/chat.png');
-  background-size: 64px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  width: 64px;
-  height: 64px;
-}
-
 .content {
   display: flex;
   flex-direction: row;
@@ -269,6 +249,45 @@
   text-align: center;
   color: #fff;
 }
+
+.content .content__nav .tasti-icone {
+  display: flex;
+  flex-direction: row;
+}
+
+.content .content__nav .notification-container {
+  position: relative;
+  width: min-content;
+  height: min-content;
+  margin: 2% 3% ;
+}
+
+.content .content__nav .notification-container:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.content .content__nav .notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .content__nav .notification-container .icona-material {
+  font-size: 35px;
+  width: min-content;
+  height: min-content;
+  color: #fff;
+}
+
 
 @media screen and (max-height: 1080px) {
   .content {

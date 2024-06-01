@@ -169,13 +169,35 @@
       </div>
 
       <nav class="content__nav right">
+
+        <div class="tasti-icone">
+
+          <div class="notification-container" title="Notifiche" routerLink="/notification">
+            <div class="notification-badge" *ngIf="this.notificationCounter>0">{{this.notificationCounter}}</div>
+            <mat-icon class="icona-material">notifications</mat-icon>
+          </div>
+
+          <div class="notification-container" title="Posta">
+            <div class="notification-badge">737</div>
+            <mat-icon class="icona-material">mail</mat-icon>
+          </div>
+
+          <div class="notification-container" title="Chat">
+            <div class="notification-badge">5</div>
+            <mat-icon class="icona-material">chat</mat-icon>
+          </div>
+
+        </div>
+
         <button routerLink="/classifica">CLASSIFICA</button>
-        <button routerLink="/">AMICI</button>
+        <button routerLink="/search-player">CERCA PLAYER</button>
+        <button routerLink="/friends">AMICI</button>
         <button routerLink="/">ALLEANZA</button>
         <button routerLink="/">MERCATO</button>
         <button routerLink="/">STATISTICHE</button>
         <button routerLink="/registro-attivita">REGISTRO ATTIVITÁ</button>
         <button routerLink="/">OPZIONI</button>
+        <button (click)="logout()">ESCI</button>
       </nav>
     </div>
 

@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h2 class="titolo">RICHIESTE DI AMICIZIA</h2>
+
+  <div class="amici">
+    <div class="head-amici">
+      <p class="head-elements-nickname">Nickname</p>
+      <p class="head-elements">Livello</p>
+      <p class="head-elements">CP</p>
+      <p class="head-elements">Azioni</p>
+    </div>
+    <div class="body-amici">
+      <div class="campi-body" *ngFor="let item of this.requests">
+        <div class="img" (click)="vediPlayer(item.basicInformation.nickname)">
+          <img src={{item.basicInformation.urlImmagine}} alt="User's profile image">
+          <p>{{item.basicInformation.nickname}}</p>
+        </div>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.livello}}</p>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.cp}}</p>
+        <div class="img-act">
+          <div  *ngIf="!this.sceltaFattaIds.includes(item.id) && !this.friendsIds.includes(item.id)" >
+            <mat-icon class="icona-material" title="Accetta richiesta d'amicizia" (click)="openDialog('accept', item.id)">done_outline</mat-icon>
+            <mat-icon class="icona-material"  title="Rifiuta richiesta d'amicizia" (click)="openDialog('reject', item.id)">close</mat-icon>
+          </div>
+          <mat-icon class="icona-material" title="Siete amici" *ngIf="this.friendsIds.includes(item.id)">group</mat-icon>
+          <mat-icon class="icona-material" title="Rifiutato!" *ngIf="this.sceltaFattaIds.includes(item.id) && !this.friendsIds.includes(item.id)">cancel</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog" *ngIf="this.dialog">
+    <p>{{this.phrase}}</p>
+    <button (click)="si()">Si</button>
+    <button (click)="annulla()">annulla</button>
+  </div>
+
+</div>

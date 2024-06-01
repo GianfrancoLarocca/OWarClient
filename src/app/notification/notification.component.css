@@ -1,0 +1,135 @@
+
+.container {
+  height: 100%;
+}
+
+.container .titolo {
+  color: #fff;
+  text-align: center;
+  margin: 20px auto 50px;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.notifiche {
+  display: flex;
+  flex-direction: column;
+}
+
+.notifiche .body-notifiche {
+  max-height: 800px;
+  overflow-y: scroll;
+  transition: box-shadow 0.3s ease;
+}
+
+.notifiche .body-notifiche::-webkit-scrollbar {
+  width: 5px; /* Larghezza della barra di scorrimento */
+}
+
+.notifiche .body-notifiche::-webkit-scrollbar-track {
+  background-color: rgb(45, 3, 49); /* Colore dello sfondo della barra di scorrimento */
+}
+
+.notifiche .body-notifiche::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 48, 153, 0.842); /* Colore della maniglia della barra di scorrimento */
+}
+
+.notifiche .body-notifiche .campi-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.notifiche .body-notifiche .campi-body:hover {
+  background-color: rgb(32 62 117);
+}
+
+.notifiche .body-notifiche .campi-body .elements {
+  color: #fff;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  border-bottom-style: double;
+  border-left-style: solid;
+}
+
+.notifiche .body-notifiche .campi-body p {
+  padding: 5px 1% 0;
+  min-width: auto;
+}
+
+.notifiche .body-notifiche .campi-body .data-element {
+  min-width: 20%;
+}
+
+.notifiche .body-notifiche .campi-body .message-element {
+  min-width: 62%;
+}
+
+
+.notifiche .body-notifiche .campi-body .img-act {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  min-width: 10%;
+  height: 32px;
+  color: #fff;
+  border-bottom-style: double;
+  border-left-style: solid;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.notifiche .body-notifiche .campi-body .img-act .icona-material {
+  margin: 5px 5px 0;
+}
+
+.notifiche .body-notifiche .campi-body .img-act:hover {
+  cursor: auto;
+}
+
+.notifiche .body-notifiche .campi-body .img-act .icona-material:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+.container .rimuovi-amico-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 500px;
+  height: max-content;
+  background: linear-gradient(to left, #222, #111);
+  text-align: center;
+  border: solid 2px #690572;
+  border-radius: 15px;
+  padding: 5px;
+  z-index: 50;
+  text-align: center;
+}
+
+.container .rimuovi-amico-dialog p {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 22px;
+  margin: 5% auto 15%;
+}
+
+.container .rimuovi-amico-dialog button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  margin: 0 5% 5%;
+  font-size: 22px;
+}
+
+.container .rimuovi-amico-dialog button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

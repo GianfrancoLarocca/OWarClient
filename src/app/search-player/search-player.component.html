@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h2 class="titolo">CERCA PLAYER</h2>
+
+  <div class="cerca">
+    <input type="text" maxlength="20" id="cerca-player" autofocus [(ngModel)]="cercaInput" (ngModelChange)="onInputChange()"/>
+  </div>
+
+
+  <div class="amici">
+    <div class="head-amici">
+      <p class="head-elements-nickname">Nickname</p>
+      <p class="head-elements">Livello</p>
+      <p class="head-elements">CP</p>
+      <p class="head-elements">Azioni</p>
+    </div>
+    <div class="body-amici">
+      <div class="campi-body" *ngFor="let item of this.players">
+        <div class="img" (click)="vediPlayer(item.basicInformation.nickname)">
+          <img src={{item.basicInformation.urlImmagine}} alt="User's profile image">
+          <p>{{item.basicInformation.nickname}}</p>
+        </div>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.livello}}</p>
+        <p class="elements" (click)="vediPlayer(item.basicInformation.nickname)">{{item.basicInformation.cp}}</p>
+
+        <div class="img-act" >
+          <div  >
+            <mat-icon class="icona-material" title="Aggiungi amico" (click)="openDialog('request', item.id)" *ngIf="item.id !== this.player.id && !this.friendsIds.includes(item.id) && !this.friendRequests.includes(item.id)">person_add</mat-icon>
+          </div>
+          <mat-icon class="icona-material"  title="Profilo giocatore" (click)="vediPlayer(item.basicInformation.nickname)">visibility</mat-icon>
+          <mat-icon class="icona-material"  title="Invia un messaggio" *ngIf="item.id !== this.player.id">chat</mat-icon>
+          <mat-icon class="icona-material"  title="Segnala giocatore" *ngIf="item.id !== this.player.id">report</mat-icon>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog" *ngIf="this.dialog">
+    <p>{{this.phrase}}</p>
+    <button (click)="si()">Si</button>
+    <button (click)="annulla()">annulla</button>
+  </div>
+
+</div>
