@@ -1,0 +1,119 @@
+
+<div class="container">
+
+  <div class="dett" *ngIf="!showDetails">
+    <h1>{{title | uppercase}}</h1>
+  </div>
+  <div class="dett" *ngIf="showDetails" [@fadeInOnEnter]>
+
+    <div class="principale">
+      <div class="img">
+        <img src={{strutturaDettagli?.urlImmagine}} alt={{strutturaDettagli?.nome}}>
+      </div>
+      <div class="info">
+        <h2>{{strutturaDettagli?.nome}}</h2>
+        <p class="centr">Livello: {{strutturaDettagli?.livello | number: '1.0-0' : 'it-IT'}}</p>
+        <p class="centr">Costo:</p>
+        <p *ngFor="let costo of strutturaDettagli?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
+        <p class="centr">Effetto struttura:</p>
+        <div class="prod">
+          <div class="prod-attuale">
+            <p>Effetto Attuale</p>
+            <p>{{strutturaDettagli?.effectValue| number: '1.0-0' : 'it-IT'}} </p>
+          </div>
+          <div class="prod-next">
+            <p>Prossimo Livello</p>
+            <p>{{strutturaDettagli?.nextEffectValue| number: '1.0-0' : 'it-IT'}} </p>
+          </div>
+        </div>
+        <p class="centr">Chance di successo:</p>
+        <div class="try">
+          <p class="centr">{{strutturaDettagli?.chance}}%</p>
+          <button (click)="tryUp(strutturaDettagli!.id)">Tenta</button>
+          <div *ngIf="chiudiFinestre.tryUpCond" [@fadeInOnEnter] [@fadeOutOnLeave] class="lvl-up">
+            <div class="contenuto" *ngIf="!chiudiFinestre.contenuto">
+              <h2>Vuoi provare ad alzare il livello?</h2>
+              <div class="opzioni">
+                <button (click)="provaAlzaLivello(strutturaDettagli!.id, strutturaDettagli!.id)">SI</button>
+                <button (click)="chiudiTryUp()">NO</button>
+              </div>
+            </div>
+            <div class="risultatoTry" (click)="chiudiFinestre.chiudiSuccOrFail()">
+              <img *ngIf="chiudiFinestre.fail" [@headShake]="animationState" src="../../assets/img/try/fail.png">
+              <img *ngIf="chiudiFinestre.success" [@heartBeat]="animationState" src="../../assets/img/try/success.png">
+            </div>
+          </div>
+          <div class="errori" *ngIf="chiudiFinestre.errori" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <h2>{{messaggioErrore}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="descrizione">
+      <p>{{strutturaDettagli?.descrizione}}</p>
+    </div>
+
+
+  </div>
+
+  <div class="strutture">
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" [ngClass]="{ 'selected': laboratorio?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(laboratorio!.id)">
+          <p class="nome">{{laboratorio?.nome}}</p>
+          <img src={{laboratorio?.urlImg}} alt={{laboratorio?.nome}}>
+          <p class="lvl">{{laboratorio?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': fabbrica?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(fabbrica!.id)">
+          <p class="nome">{{fabbrica?.nome}}</p>
+          <img src={{fabbrica?.urlImg}} alt={{fabbrica?.nome}}>
+          <p class="lvl">{{fabbrica?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': addestramento?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(addestramento!.id)">
+          <p class="nome">{{addestramento?.nome}}</p>
+          <img src={{addestramento?.urlImg}} alt={{addestramento?.nome}}>
+          <p class="lvl">{{addestramento?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" [ngClass]="{ 'selected': caveau?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(caveau!.id)">
+          <p class="nome">{{caveau?.nome}}</p>
+          <img src={{caveau?.urlImg}} alt={{caveau?.nome}}>
+          <p class="lvl">{{caveau?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': bunker?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(bunker!.id)">
+          <p class="nome">{{bunker?.nome}}</p>
+          <img src={{bunker?.urlImg}} alt={{bunker?.nome}}>
+          <p class="lvl">{{bunker?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': cyber?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(cyber!.id)">
+          <p class="nome">{{cyber?.nome}}</p>
+          <img src={{cyber?.urlImg}} alt={{cyber?.nome}}>
+          <p class="lvl">{{cyber?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" [ngClass]="{ 'selected': deposito?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(deposito!.id)">
+          <p class="nome">{{deposito?.nome}}</p>
+          <img src={{deposito?.urlImg}} alt={{deposito?.nome}}>
+          <p class="lvl">{{deposito?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': infermeria?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(infermeria!.id)">
+          <p class="nome">{{infermeria?.nome}}</p>
+          <img src={{infermeria?.urlImg}} alt={{infermeria?.nome}}>
+          <p class="lvl">{{infermeria?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': cimitero?.nome === strutturaDettagli?.nome}" (click)="showDetailsMethod(cimitero!.id)">
+          <p class="nome">{{cimitero?.nome}}</p>
+          <img src={{cimitero?.urlImg}} alt={{cimitero?.nome}}>
+          <p class="lvl">{{cimitero?.livello}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -207,6 +207,10 @@
   margin: 0;
 }
 
+.content__nav .selezionato {
+  color: #fffa00;
+}
+
 .content__nav button:hover {
   cursor: pointer;
   opacity: 0.8;

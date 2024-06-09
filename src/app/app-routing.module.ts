@@ -15,6 +15,7 @@ import { FriendsComponent } from './friends/friends.component';
 import { SearchPlayerComponent } from './search-player/search-player.component';
 import { NotificationComponent } from './notification/notification.component';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
+import { StruttureComponent } from './strutture/strutture.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         data: { title: 'home' }
+      },
+      {
+        path: 'strutture',
+        component: StruttureComponent,
+        data: { title: 'strutture' }
       },
       {
         path: 'player',

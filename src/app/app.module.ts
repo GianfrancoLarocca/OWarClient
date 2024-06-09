@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NotificationComponent } from './notification/notification.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
+import { StruttureComponent } from './strutture/strutture.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { FriendRequestsComponent } from './friend-requests/friend-requests.compo
     FriendsComponent,
     SearchPlayerComponent,
     NotificationComponent,
-    FriendRequestsComponent
+    FriendRequestsComponent,
+    StruttureComponent
 
   ],
   imports: [

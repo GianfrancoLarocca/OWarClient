@@ -53,6 +53,9 @@ export class HomeComponent implements OnInit{
   fail = false;
   contenuto = false;
   ngOnInit(): void {
+
+    this.playerService.tastoSelezionato = 'tasto_home';
+
     this.caricaStrutture();
 
     this.errori = this.chiudiFinestre.errori;

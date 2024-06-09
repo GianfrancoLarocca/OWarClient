@@ -96,7 +96,7 @@ p {
   margin: 0;
 }
 
-.container .rimuovi-amico-dialog {
+.container .dialog {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -113,14 +113,14 @@ p {
   text-align: center;
 }
 
-.container .rimuovi-amico-dialog p {
+.container .dialog p {
   color: #fff;
   font-weight: bolder;
   font-size: 22px;
   margin: 5% auto 15%;
 }
 
-.container .rimuovi-amico-dialog button {
+.container .dialog button {
   width: 100px;
   height: 40px;
   border: none;
@@ -129,7 +129,7 @@ p {
   font-size: 22px;
 }
 
-.container .rimuovi-amico-dialog button:hover {
+.container .dialog button:hover {
   cursor: pointer;
   transform: scale(1.2);
 }

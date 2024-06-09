@@ -10,7 +10,7 @@ import { PageAttivita } from '../../models/page-attivita';
   templateUrl: './registro-attivita.component.html',
   styleUrl: './registro-attivita.component.css'
 })
-export class RegistroAttivitaComponent implements OnInit{
+export class RegistroAttivitaComponent implements OnInit {
 
   playerService = inject(PlayerService);
   attivita?: PageAttivita;
@@ -21,6 +21,9 @@ export class RegistroAttivitaComponent implements OnInit{
   selected:string = 'tutto';
 
   ngOnInit(): void {
+
+    this.playerService.tastoSelezionato = 'tasto_registro_attivita';
+
     this.playerService.getRegistroAttivita(this.pageNumber, this.pageSize).subscribe(attivita => {
       this.attivita = attivita;
     })

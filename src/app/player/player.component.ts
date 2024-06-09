@@ -40,6 +40,8 @@ export class PlayerComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.playerService.tastoSelezionato = '';
+
     if(this.actRoute.snapshot.paramMap.get('nickname')) {
       //console.log(this.actRoute.snapshot.paramMap.get('nickname'));
       this.caricaPlayerInfo(this.actRoute.snapshot.paramMap.get('nickname')!);

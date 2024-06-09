@@ -16,6 +16,7 @@ export class FriendsComponent implements OnInit {
   friends:Array<any> = [];
 
   ngOnInit(): void {
+    this.playerService.tastoSelezionato = 'tasto_friends';
     this.aggiornaListaAmici();
   }
 

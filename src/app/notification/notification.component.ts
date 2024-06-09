@@ -23,6 +23,9 @@ export class NotificationComponent implements OnInit, OnDestroy {
   private player:any;
 
   ngOnInit() {
+
+    this.playerService.tastoSelezionato = '';
+
     this.playerService.getNotifications().subscribe(notifiche => {
       this.notifications = this.sortNotificationsByDate(notifiche);
 

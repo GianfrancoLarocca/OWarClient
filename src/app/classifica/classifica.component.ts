@@ -19,6 +19,9 @@ export class ClassificaComponent implements OnInit {
   classifica:Array<Classifica> = [];
 
   ngOnInit(): void {
+
+    this.playerService.tastoSelezionato = 'tasto_classifica';
+
     this.playerService.getClassificaLivello().subscribe(risposta => {
       this.classifica = risposta;
     })

@@ -22,6 +22,9 @@ export class SearchPlayerComponent implements OnInit{
   friendRequests:Array<number> = [];
 
   ngOnInit(): void {
+
+    this.playerService.tastoSelezionato = 'tasto_search_player';
+
     this.playerService.getPlayer().subscribe(p => this.player = p);
     this.playerService.getFriendsIds().subscribe(friends => {
       this.friendsIds = friends

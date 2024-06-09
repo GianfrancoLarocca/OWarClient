@@ -154,14 +154,16 @@
     <div class="content">
 
       <nav class="content__nav left">
-        <button routerLink="/">SERVER</button>
-        <button routerLink="/home">HOME</button>
-        <button routerLink="/dialog">TECNOLOGIA</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_home'}" routerLink="/home">HOME</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_strutture'}" routerLink="/strutture">STRUTTURE</button>
+        <button routerLink="/">TECNOLOGIA</button>
         <button routerLink="/">ARSENALE</button>
         <button routerLink="/">DIFESA</button>
         <button routerLink="/">ESERCITO</button>
         <button routerLink="/">MONDO</button>
         <button routerLink="/">MISSIONE</button>
+        <button routerLink="/">INFERMERIA</button>
+        <button routerLink="/">CIMITERO DI GUERRA</button>
       </nav>
 
       <div class="content__main">
@@ -189,13 +191,13 @@
 
         </div>
 
-        <button routerLink="/classifica">CLASSIFICA</button>
-        <button routerLink="/search-player">CERCA PLAYER</button>
-        <button routerLink="/friends">AMICI</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_classifica'}" routerLink="/classifica">CLASSIFICA</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_search_player'}" routerLink="/search-player">CERCA PLAYER</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_friends'}" routerLink="/friends">AMICI</button>
         <button routerLink="/">ALLEANZA</button>
         <button routerLink="/">MERCATO</button>
         <button routerLink="/">STATISTICHE</button>
-        <button routerLink="/registro-attivita">REGISTRO ATTIVITÁ</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_registro_attivita'}" routerLink="/registro-attivita">REGISTRO ATTIVITÁ</button>
         <button routerLink="/">OPZIONI</button>
         <button (click)="logout()">ESCI</button>
       </nav>

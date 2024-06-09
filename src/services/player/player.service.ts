@@ -48,6 +48,8 @@ export class PlayerService {
     public bitcoinProd?: ProduzioneRisorseDto;
     public acquaProd?: ProduzioneRisorseDto;
 
+    public tastoSelezionato = '';
+
   constructor() { }
 
   updateExpBar() {
@@ -179,5 +181,23 @@ export class PlayerService {
 
   friendRequestChose(playerId:number) {
     return this.http.get<boolean>(`${this.localhostUrl}/friend-request-chose/${playerId}`);
+  }
+
+  //SVILUPPO
+
+  getSviluppoStrutture() {
+    return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/strutture`);
+  }
+
+  getSviluppoStrutturaDett(idSviluppoStruttura:number) {
+    return this.http.get<StrutturaDettDto>(`${this.localhostUrl}/sviluppo/strutture/id/${idSviluppoStruttura}`);
+  }
+
+  canPaySviluppoStrutture(sviluppoId: number) {
+    return this.http.get<Boolean>(`${this.localhostUrl}/sviluppo/strutture/id/${sviluppoId}/canpay`);
+  }
+
+  provaAlzaLivelloSviluppoStrutture(sviluppoId: number) {
+    return this.http.get(`${this.localhostUrl}/sviluppo/strutture/id/${sviluppoId}/alzalivello`, { responseType: 'text' });
   }
 }

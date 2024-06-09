@@ -9,5 +9,7 @@ export class StrutturaDettDto {
   public costi!: Map<string, string>
   public produzioneAttuale!: Map<string, string>
   public produzioneProssimoLivello!: Map<string, string>
+  public effectValue?:number;
+  public nextEffectValue?:number;
 }
 

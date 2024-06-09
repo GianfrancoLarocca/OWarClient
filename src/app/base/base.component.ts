@@ -4,7 +4,7 @@ import { Subscription, interval } from 'rxjs';
 import { ChiudiFinestreService } from '../../services/chiudi-finestre.service';
 import { BasicDto } from '../../models/basic-dto';
 import { AuthService } from '../../services/auth/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WebSocketNotificationService } from '../../services/web-socket-notification-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PlayerNotification } from '../../models/player-notification';
@@ -31,7 +31,6 @@ export class BaseComponent implements OnInit, OnDestroy {
   notification!:PlayerNotification;
   notificationCounter:number = 0;
 
-
   ngOnInit(): void {
     this.playerService.getRisorse();
     this.playerService.getProduzioneRisorse();
@@ -52,7 +51,9 @@ export class BaseComponent implements OnInit, OnDestroy {
         console.log('notification', this.notification);
         this.mostraNotifica(this.notification.title);
       })
-    })
+    });
+
+
   }
 
   chiudiTutto() {
