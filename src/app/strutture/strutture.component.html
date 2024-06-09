@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="dett" *ngIf="!showDetails">
-    <h1>{{title | uppercase}}</h1>
+    <h1 id="titolo-sezione">{{title | uppercase}}</h1>
   </div>
   <div class="dett" *ngIf="showDetails" [@fadeInOnEnter]>
 
@@ -19,11 +19,11 @@
         <div class="prod">
           <div class="prod-attuale">
             <p>Effetto Attuale</p>
-            <p>{{strutturaDettagli?.effectValue| number: '1.0-0' : 'it-IT'}} </p>
+            <p>{{strutturaDettagli?.effectValue| number: '1.0-1' : 'it-IT'}}% </p>
           </div>
           <div class="prod-next">
             <p>Prossimo Livello</p>
-            <p>{{strutturaDettagli?.nextEffectValue| number: '1.0-0' : 'it-IT'}} </p>
+            <p>{{strutturaDettagli?.nextEffectValue| number: '1.0-1' : 'it-IT'}}% </p>
           </div>
         </div>
         <p class="centr">Chance di successo:</p>

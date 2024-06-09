@@ -26,6 +26,12 @@
   min-height: 480px;
 }
 
+.dett #titolo-sezione {
+  margin: 5% auto;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
 .lvl-up {
   width: 1300px;
   height: 400px;
