@@ -156,7 +156,7 @@
       <nav class="content__nav left">
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_home'}" routerLink="/home">HOME</button>
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_strutture'}" routerLink="/strutture">STRUTTURE</button>
-        <button routerLink="/">TECNOLOGIA</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_tech'}" routerLink="/tecnologia">TECNOLOGIA</button>
         <button routerLink="/">ARSENALE</button>
         <button routerLink="/">DIFESA</button>
         <button routerLink="/">ESERCITO</button>

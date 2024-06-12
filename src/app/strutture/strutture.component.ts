@@ -69,10 +69,8 @@ export class StruttureComponent implements OnInit {
     if (idSviluppoStruttura > 0) {
       this.showDetails = true
 
-
       console.log(idSviluppoStruttura)
 
-      console.log('Chiamata a getSviluppoStrutturaDett');
       this.playerService.getSviluppoStrutturaDett(idSviluppoStruttura).subscribe(strutturaDett => this.strutturaDettagli = strutturaDett);
     }
 

@@ -11,5 +11,7 @@ export class StrutturaDettDto {
   public produzioneProssimoLivello!: Map<string, string>
   public effectValue?:number;
   public nextEffectValue?:number;
+  public effectValueType?:string;
+  public livelloLaboratorioRequisito?:number;
 }
 

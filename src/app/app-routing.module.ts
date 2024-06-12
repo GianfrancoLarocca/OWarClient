@@ -16,6 +16,7 @@ import { SearchPlayerComponent } from './search-player/search-player.component';
 import { NotificationComponent } from './notification/notification.component';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 import { StruttureComponent } from './strutture/strutture.component';
+import { TecnologiaComponent } from './tecnologia/tecnologia.component';
 
 const routes: Routes = [
 
@@ -38,6 +39,11 @@ const routes: Routes = [
         path: 'strutture',
         component: StruttureComponent,
         data: { title: 'strutture' }
+      },
+      {
+        path: 'tecnologia',
+        component: TecnologiaComponent,
+        data: { title: 'tecnologia' }
       },
       {
         path: 'player',

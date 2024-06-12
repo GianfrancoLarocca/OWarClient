@@ -200,4 +200,32 @@ export class PlayerService {
   provaAlzaLivelloSviluppoStrutture(sviluppoId: number) {
     return this.http.get(`${this.localhostUrl}/sviluppo/strutture/id/${sviluppoId}/alzalivello`, { responseType: 'text' });
   }
+
+
+  //SVILUPPO
+
+  getSviluppoTecnologia() {
+    return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/tecnologia`);
+  }
+
+  getSviluppoTechDett(techId:number) {
+    return this.http.get<StrutturaDettDto>(`${this.localhostUrl}/sviluppo/tecnologia/id/${techId}`);
+  }
+
+  canPaySviluppoTech(techId: number) {
+    return this.http.get<Boolean>(`${this.localhostUrl}/sviluppo/tecnologia/id/${techId}/canpay`);
+  }
+
+  provaAlzaLivelloTech(techId: number) {
+    return this.http.get(`${this.localhostUrl}/sviluppo/tecnologia/id/${techId}/alzalivello`, { responseType: 'text' });
+  }
+
+  getLivelloLaboratorio() {
+    return this.http.get<number>(`${this.localhostUrl}/sviluppo/tecnologia/requisito`);
+  }
+
+
+
+
+
 }
