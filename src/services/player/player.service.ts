@@ -183,7 +183,7 @@ export class PlayerService {
     return this.http.get<boolean>(`${this.localhostUrl}/friend-request-chose/${playerId}`);
   }
 
-  //SVILUPPO
+  // SVILUPPO
 
   getSviluppoStrutture() {
     return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/strutture`);
@@ -202,7 +202,7 @@ export class PlayerService {
   }
 
 
-  //SVILUPPO
+  // TECNOLOGIA
 
   getSviluppoTecnologia() {
     return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/tecnologia`);
@@ -224,8 +224,26 @@ export class PlayerService {
     return this.http.get<number>(`${this.localhostUrl}/sviluppo/tecnologia/requisito`);
   }
 
+  // ARSENALE
 
+  getSviluppoArsenale() {
+    return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/arsenale`);
+  }
 
+  getSviluppoArsenaleDett(arsenaleId:number) {
+    return this.http.get<StrutturaDettDto>(`${this.localhostUrl}/sviluppo/arsenale/id/${arsenaleId}`);
+  }
 
+  canPaySviluppoArsenale(arsenaleId: number) {
+    return this.http.get<Boolean>(`${this.localhostUrl}/sviluppo/arsenale/id/${arsenaleId}/canpay`);
+  }
+
+  provaAlzaLivelloArsenale(arsenaleId: number) {
+    return this.http.get(`${this.localhostUrl}/sviluppo/arsenale/id/${arsenaleId}/alzalivello`, { responseType: 'text' });
+  }
+
+  getLivelloFabbrica() {
+    return this.http.get<number>(`${this.localhostUrl}/sviluppo/arsenale/requisito`);
+  }
 
 }

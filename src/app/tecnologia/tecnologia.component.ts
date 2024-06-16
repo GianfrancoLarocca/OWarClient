@@ -30,13 +30,13 @@ export class TecnologiaComponent implements OnInit {
   public performante?: StrutturaDto;
   public fortuna?: StrutturaDto;
 
-  laboratorioRicerca:number=0;
+  laboratorioRicercaLvl:number=0;
 
   ngOnInit(): void {
 
     this.playerService.tastoSelezionato = 'tasto_tech';
 
-    this.playerService.getLivelloLaboratorio().subscribe(livello => this.laboratorioRicerca = livello);
+    this.playerService.getLivelloLaboratorio().subscribe(livello => this.laboratorioRicercaLvl = livello);
     this.caricaTecnologie();
   }
 
@@ -70,7 +70,7 @@ export class TecnologiaComponent implements OnInit {
     this.playerService.canPaySviluppoTech(id).subscribe(risultato => {
 
       if(risultato) {
-        if(this.techDett!.livelloLaboratorioRequisito! <= this.laboratorioRicerca) {
+        if(this.techDett!.livelloLaboratorioRequisito! <= this.laboratorioRicercaLvl) {
           this.chiudiFinestre.tryUpCond = true;
         } else {
           this.chiudiFinestre.errori = true;

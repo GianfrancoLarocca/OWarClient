@@ -17,6 +17,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 import { StruttureComponent } from './strutture/strutture.component';
 import { TecnologiaComponent } from './tecnologia/tecnologia.component';
+import { ArsenaleComponent } from './arsenale/arsenale.component';
 
 const routes: Routes = [
 
@@ -44,6 +45,11 @@ const routes: Routes = [
         path: 'tecnologia',
         component: TecnologiaComponent,
         data: { title: 'tecnologia' }
+      },
+      {
+        path: 'arsenale',
+        component: ArsenaleComponent,
+        data: { title: 'arsenale' }
       },
       {
         path: 'player',

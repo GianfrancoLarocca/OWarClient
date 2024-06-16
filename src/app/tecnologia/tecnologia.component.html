@@ -15,7 +15,7 @@
         <p class="centr">Livello: {{techDett?.livello | number: '1.0-0' : 'it-IT'}}</p>
         <p class="centr">Costo:</p>
         <p *ngFor="let costo of techDett?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
-        <p class="centr">Effetto struttura:</p>
+        <p class="centr">Effetto tecnologia:</p>
         <div class="prod">
           <div class="prod-attuale">
             <p>Effetto Attuale</p>
@@ -50,8 +50,8 @@
       </div>
     </div>
     <div class="descrizione">
-      <p class="requisito-soddisfatto" [ngClass]="{ 'requisito-non-soddisfatto': techDett!.livelloLaboratorioRequisito! > laboratorioRicerca!}">
-        * Per far salire di livello questa tecnologia è richiesto il Laboratorio di ricerca al livello: {{techDett?.livelloLaboratorioRequisito}}. Attualmente il livello del Laboratorio di ricerca è al: {{this.laboratorioRicerca}}
+      <p class="requisito-soddisfatto" [ngClass]="{ 'requisito-non-soddisfatto': techDett!.livelloLaboratorioRequisito! > laboratorioRicercaLvl!}">
+        * Per far salire di livello questa tecnologia è richiesto il Laboratorio di ricerca al livello: {{techDett?.livelloLaboratorioRequisito}}. Attualmente il livello del Laboratorio di ricerca è al: {{this.laboratorioRicercaLvl}}
       </p>
       <p>{{techDett?.descrizione}}</p>
     </div>
