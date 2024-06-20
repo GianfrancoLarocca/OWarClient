@@ -18,6 +18,7 @@ import { FriendRequestsComponent } from './friend-requests/friend-requests.compo
 import { StruttureComponent } from './strutture/strutture.component';
 import { TecnologiaComponent } from './tecnologia/tecnologia.component';
 import { ArsenaleComponent } from './arsenale/arsenale.component';
+import { DifesaComponent } from './difesa/difesa.component';
 
 const routes: Routes = [
 
@@ -50,6 +51,11 @@ const routes: Routes = [
         path: 'arsenale',
         component: ArsenaleComponent,
         data: { title: 'arsenale' }
+      },
+      {
+        path: 'difesa',
+        component: DifesaComponent,
+        data: { title: 'difesa' }
       },
       {
         path: 'player',

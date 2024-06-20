@@ -26,5 +26,9 @@ export class StrutturaDettDto {
   public velocita?:number;
   public stiva?:number;
   public consumo?:number;
+
+  //difesa
+  public danno?:number;
+  public penetrazioneArmatura?:number;
 }
 

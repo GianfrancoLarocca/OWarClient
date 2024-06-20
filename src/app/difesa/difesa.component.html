@@ -1,0 +1,109 @@
+
+<div class="container">
+
+  <div class="dett" *ngIf="!showDetails">
+    <h1 id="titolo-sezione">{{title | uppercase}}</h1>
+  </div>
+  <div class="dett" *ngIf="showDetails" [@fadeInOnEnter]>
+
+    <div class="principale">
+      <div class="img">
+        <img src={{difesaDett?.urlImmagine}} alt={{difesaDett?.nome}}>
+      </div>
+      <div class="info">
+        <h2>{{difesaDett?.nome}}</h2>
+        <p class="centr">Livello: {{difesaDett?.livello | number: '1.0-0' : 'it-IT'}}</p>
+
+        <p class="centr">Costo:</p>
+        <p *ngFor="let costo of difesaDett?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
+
+        <div class="scheda-tecnica-flex">
+          <button id="scheda-tecnica" (click)="vediSchedaTecnica()">Scheda tecnica</button>
+        </div>
+        <div class="schermata-scheda-tecnica" *ngIf="this.schedaTecnicaVista">
+
+          <h2 id="st-titolo">SCHEDA TECNICA</h2>
+          <div id="icona-chiudi" (click)="chiudiSchedaTecnica()">
+            <mat-icon>close</mat-icon>
+          </div>
+
+
+          <div class="st-sub-titolo">
+
+              <div class="st-sub-titolo-valori-attuali">
+                <h3>VALORI ATTUALI:</h3>
+
+              </div>
+
+              <div class="st-sub-titolo-valori-prossimi">
+                <h3>VALORI AL PROSSIMO LIVELLO:</h3>
+              </div>
+
+          </div>
+
+          <div class="st-valori-flex">
+            <div class="st-valori-attuali">
+              <p>DANNO: {{difesaDett!.danno! * difesaDett!.livello}}</p>
+              <p>PENETRAZIONE ARMATURA: {{difesaDett!.penetrazioneArmatura! * difesaDett!.livello}}</p>
+              <p>ARMATURA: {{difesaDett!.armatura! * difesaDett!.livello}}</p>
+              <p>VITA: {{difesaDett!.vita! * difesaDett!.livello}}</p>
+            </div>
+
+            <div class="st-valori-prossimi">
+              <p>DANNO: {{difesaDett!.danno! * (difesaDett!.livello + 1)}}</p>
+              <p>PENETRAZIONE ARMATURA: {{difesaDett!.penetrazioneArmatura! * (difesaDett!.livello + 1)}}</p>
+              <p>ARMATURA: {{difesaDett!.armatura! * (difesaDett!.livello + 1)}}</p>
+              <p>VITA: {{difesaDett!.vita! * (difesaDett!.livello + 1)}}</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <p class="centr">Chance di successo:</p>
+        <div class="try">
+          <p class="centr">{{difesaDett?.chance}}%</p>
+          <button (click)="tryUp(difesaDett!.id)">Tenta</button>
+          <div *ngIf="chiudiFinestre.tryUpCond" [@fadeInOnEnter] [@fadeOutOnLeave] class="lvl-up">
+            <div class="contenuto" *ngIf="!chiudiFinestre.contenuto">
+              <h2>Vuoi provare ad alzare il livello?</h2>
+              <div class="opzioni">
+                <button (click)="provaAlzaLivello(difesaDett!.id, difesaDett!.id)">SI</button>
+                <button (click)="chiudiTryUp()">NO</button>
+              </div>
+            </div>
+            <div class="risultatoTry" (click)="chiudiFinestre.chiudiSuccOrFail()">
+              <img *ngIf="chiudiFinestre.fail" [@headShake]="animationState" src="../../assets/img/try/fail.png">
+              <img *ngIf="chiudiFinestre.success" [@heartBeat]="animationState" src="../../assets/img/try/success.png">
+            </div>
+          </div>
+          <div class="errori" *ngIf="chiudiFinestre.errori" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <h2>{{messaggioErrore}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="descrizione">
+      <p class="requisito-soddisfatto" [ngClass]="{ 'requisito-non-soddisfatto': difesaDett!.livelloFabbricaRequisito! > fabbricaMunizioniLvl!}">
+        * Per far salire di livello questa tecnologia è richiesto il Laboratorio di ricerca al livello: {{difesaDett?.livelloFabbricaRequisito}}. Attualmente il livello del Laboratorio di ricerca è al: {{this.fabbricaMunizioniLvl}}
+      </p>
+      <p>{{difesaDett?.descrizione}}</p>
+    </div>
+
+
+  </div>
+
+  <div class="strutture">
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" [ngClass]="{ 'selected': torretta?.nome === difesaDett?.nome}" (click)="showDetailsMethod(torretta!.id)">
+          <p class="nome">{{torretta?.nome}}</p>
+          <img src={{torretta?.urlImg}} alt={{torretta?.nome}}>
+          <p class="lvl">{{torretta?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+</div>

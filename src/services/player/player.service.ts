@@ -246,4 +246,22 @@ export class PlayerService {
     return this.http.get<number>(`${this.localhostUrl}/sviluppo/arsenale/requisito`);
   }
 
+  // DIFESA
+
+  getSviluppoDifesa() {
+    return this.http.get<Array<StrutturaDto>>(`${this.localhostUrl}/sviluppo/difesa`);
+  }
+
+  getSviluppoDifesaDett(difesaId:number) {
+    return this.http.get<StrutturaDettDto>(`${this.localhostUrl}/sviluppo/difesa/id/${difesaId}`);
+  }
+
+  canPaySviluppoDifesa(difesaId: number) {
+    return this.http.get<Boolean>(`${this.localhostUrl}/sviluppo/difesa/id/${difesaId}/canpay`);
+  }
+
+  provaAlzaLivelloDifesa(difesaId: number) {
+    return this.http.get(`${this.localhostUrl}/sviluppo/difesa/id/${difesaId}/alzalivello`, { responseType: 'text' });
+  }
+
 }

@@ -156,9 +156,9 @@
       <nav class="content__nav left">
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_home'}" routerLink="/home">HOME</button>
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_strutture'}" routerLink="/strutture">STRUTTURE</button>
-        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_tech'}" routerLink="/tecnologia">TECNOLOGIA</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_tech'}" routerLink="/tecnologia">TECNOLOGIE</button>
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_arsenale'}" routerLink="/arsenale">ARSENALE</button>
-        <button routerLink="/">DIFESA</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_difesa'}" routerLink="/difesa">DIFESA</button>
         <button routerLink="/">ESERCITO</button>
         <button routerLink="/">MONDO</button>
         <button routerLink="/">MISSIONE</button>
@@ -187,6 +187,11 @@
           <div class="notification-container" title="Chat">
             <div class="notification-badge">5</div>
             <mat-icon class="icona-material">chat</mat-icon>
+          </div>
+
+          <div class="notification-container" title="Scudo prottetivo">
+            <div class="notification-badge">2</div>
+            <mat-icon class="icona-material">health_and_safety</mat-icon>
           </div>
 
         </div>
