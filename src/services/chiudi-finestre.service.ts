@@ -8,7 +8,7 @@ export class ChiudiFinestreService {
   errori = false;
   tryUpCond = false;
   success = false;
-  public fail = false;
+  fail = false;
   contenuto = false;
 
   constructor() { }
@@ -32,6 +32,21 @@ export class ChiudiFinestreService {
       this.success = false;
       this.fail = false;
       this.contenuto = false;
+    }
+  }
+
+  schedaTecnicaVista:boolean = false;
+  vediSchedaTecnica(){
+    if(!this.schedaTecnicaVista) {
+      setTimeout(() => {
+        this.schedaTecnicaVista = true;
+      }, 30)
+    }
+  }
+
+  chiudiSchedaTecnica() {
+    if(this.schedaTecnicaVista) {
+      this.schedaTecnicaVista = false;
     }
   }
 }

@@ -369,8 +369,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 60%;
   border: solid 1px #fff;
   border-radius: 15px;
 
@@ -381,13 +381,13 @@
 .info .schermata-scheda-tecnica h2 {
   font-size: 30px;
   font-weight: bolder;
-  margin-top: 3%;
+  margin: 2% 0 0 0;
 }
 
 .info .schermata-scheda-tecnica h3 {
   font-size: 25px;
   font-weight: bold;
-  margin-top: 2%;
+  margin: 0 0 5%;
 }
 
 .info .schermata-scheda-tecnica p {
@@ -439,7 +439,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 50%;
+  height: 100%;
 }
 
 .info .schermata-scheda-tecnica .st-valori-attuali {
@@ -448,7 +448,6 @@
   justify-content: center;
   flex: 1;
   align-items: center;
-
 }
 
 .info .schermata-scheda-tecnica .st-valori-prossimi {
@@ -457,5 +456,25 @@
   justify-content: center;
   flex: 1;
   align-items: center;
+}
 
+.info .schermata-scheda-tecnica .obbiettivi {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  min-height: 280px;
+}
+
+.info .schermata-scheda-tecnica .obbiettivi h3 {
+  margin: 6% 0 3%;
+}
+
+.info .schermata-scheda-tecnica .obbiettivi p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 1px solid #fff;
+  width: 80%;
+  margin: 5px;
 }

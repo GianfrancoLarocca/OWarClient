@@ -59,6 +59,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   chiudiTutto() {
     this.chiudiFinestre.chiudiFinestraErrore();
     this.chiudiFinestre.chiudiSuccOrFail();
+    this.chiudiFinestre.chiudiSchedaTecnica();
   }
 
   ngOnDestroy() {

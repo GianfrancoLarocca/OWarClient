@@ -145,17 +145,4 @@ export class DifesaComponent implements OnInit {
     }, 1);
   }
 
-  schedaTecnicaVista:boolean = false;
-  vediSchedaTecnica(){
-    if(this.schedaTecnicaVista === false) {
-      this.schedaTecnicaVista = true;
-    }
-  }
-
-  chiudiSchedaTecnica() {
-    if(this.schedaTecnicaVista === true) {
-      this.schedaTecnicaVista = false;
-    }
-  }
-
 }

@@ -18,12 +18,12 @@
         <p *ngFor="let costo of difesaDett?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
 
         <div class="scheda-tecnica-flex">
-          <button id="scheda-tecnica" (click)="vediSchedaTecnica()">Scheda tecnica</button>
+          <button id="scheda-tecnica" (click)="chiudiFinestre.vediSchedaTecnica()">Scheda tecnica</button>
         </div>
-        <div class="schermata-scheda-tecnica" *ngIf="this.schedaTecnicaVista">
+        <div class="schermata-scheda-tecnica" *ngIf="chiudiFinestre.schedaTecnicaVista">
 
           <h2 id="st-titolo">SCHEDA TECNICA</h2>
-          <div id="icona-chiudi" (click)="chiudiSchedaTecnica()">
+          <div id="icona-chiudi" (click)="chiudiFinestre.chiudiSchedaTecnica()">
             <mat-icon>close</mat-icon>
           </div>
 

@@ -33,6 +33,20 @@ export class ArsenaleComponent implements OnInit {
   public AKK164?: StrutturaDto;
   public SP3R?: StrutturaDto;
 
+  public granata?: StrutturaDto;
+  public droneEsplosivo?: StrutturaDto;
+  public sistemaMissilistico?: StrutturaDto;
+  public moody?: StrutturaDto;
+  public doody?: StrutturaDto;
+  public zanq?: StrutturaDto;
+
+  public dodo?: StrutturaDto;
+  public icio?: StrutturaDto;
+  public manu?: StrutturaDto;
+  public virus?: StrutturaDto;
+  public cargo?: StrutturaDto;
+  public droneSpia?: StrutturaDto;
+
   fabbricaMunizioniLvl:number=0;
 
   ngOnInit(): void {
@@ -41,14 +55,6 @@ export class ArsenaleComponent implements OnInit {
 
     this.playerService.getLivelloFabbrica().subscribe(livello => this.fabbricaMunizioniLvl = livello);
     this.caricaArsenale();
-
-    /*
-    this.playerService.getSviluppoArsenale().subscribe(r => console.log('arsenale', r))
-    this.playerService.getSviluppoArsenaleDett(14).subscribe(r => console.log('arsenale dettagli', r))
-    this.playerService.canPaySviluppoArsenale(14).subscribe(r => console.log('arsenale can pay', r))
-    this.playerService.provaAlzaLivelloArsenale(14).subscribe(r => console.log('arsenale try lvl up', r))
-    this.playerService.getLivelloFabbrica().subscribe(r => console.log('livello fabbrica', r))
-    */
   }
 
   caricaArsenale() {
@@ -62,6 +68,20 @@ export class ArsenaleComponent implements OnInit {
       this.BR88EVO = this.arsenaleDto.find(ars => ars.nome === "BR88EVO");
       this.AKK164 = this.arsenaleDto.find(ars => ars.nome === "AKK164");
       this.SP3R = this.arsenaleDto.find(ars => ars.nome === "SP3R");
+
+      this.granata = this.arsenaleDto.find(ars => ars.nome === "Granata");
+      this.droneEsplosivo = this.arsenaleDto.find(ars => ars.nome === "Drone esplosivo");
+      this.sistemaMissilistico = this.arsenaleDto.find(ars => ars.nome === "Sistema missilistico");
+      this.moody = this.arsenaleDto.find(ars => ars.nome === "Aer M-00DY");
+      this.doody = this.arsenaleDto.find(ars => ars.nome === "Aer D-00DY");
+      this.zanq = this.arsenaleDto.find(ars => ars.nome === "Aer ZANQ v92");
+
+      this.dodo = this.arsenaleDto.find(ars => ars.nome === "BOMB-DODO");
+      this.icio = this.arsenaleDto.find(ars => ars.nome === "FF IC-10");
+      this.manu = this.arsenaleDto.find(ars => ars.nome === "JJ M4-NU");
+      this.virus = this.arsenaleDto.find(ars => ars.nome === "Virus informatico");
+      this.cargo = this.arsenaleDto.find(ars => ars.nome === "Cargo");
+      this.droneSpia = this.arsenaleDto.find(ars => ars.nome === "Drone spia");
     });
   }
 
@@ -149,19 +169,6 @@ export class ArsenaleComponent implements OnInit {
       this.animationState = true;
       this.animationWithState = !this.animationWithState;
     }, 1);
-  }
-
-  schedaTecnicaVista:boolean = false;
-  vediSchedaTecnica(){
-    if(this.schedaTecnicaVista === false) {
-      this.schedaTecnicaVista = true;
-    }
-  }
-
-  chiudiSchedaTecnica() {
-    if(this.schedaTecnicaVista === true) {
-      this.schedaTecnicaVista = false;
-    }
   }
 
 }

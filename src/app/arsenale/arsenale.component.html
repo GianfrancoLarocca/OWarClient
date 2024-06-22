@@ -18,46 +18,50 @@
         <p *ngFor="let costo of arsenaleDett?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value | number: '1.0-0' : 'it-IT'}} </p>
 
         <div class="scheda-tecnica-flex">
-          <button id="scheda-tecnica" (click)="vediSchedaTecnica()">Scheda tecnica</button>
+          <button id="scheda-tecnica" (click)="chiudiFinestre.vediSchedaTecnica()">Scheda tecnica</button>
         </div>
-        <div class="schermata-scheda-tecnica" *ngIf="this.schedaTecnicaVista">
+        <div class="schermata-scheda-tecnica" *ngIf="chiudiFinestre.schedaTecnicaVista">
 
-          <h2 id="st-titolo">SCHEDA TECNICA</h2>
-          <div id="icona-chiudi" (click)="chiudiSchedaTecnica()">
+          <h2 id="st-titolo">SCHEDA TECNICA "{{arsenaleDett?.nome}}"</h2>
+          <div id="icona-chiudi" (click)="chiudiFinestre.chiudiSchedaTecnica()">
             <mat-icon>close</mat-icon>
-          </div>
-
-
-          <div class="st-sub-titolo">
-
-              <div class="st-sub-titolo-valori-attuali">
-                <h3>VALORI ATTUALI:</h3>
-
-              </div>
-
-              <div class="st-sub-titolo-valori-prossimi">
-                <h3>VALORI AL PROSSIMO LIVELLO:</h3>
-              </div>
-
           </div>
 
           <div class="st-valori-flex">
             <div class="st-valori-attuali">
-              <p>ATTACCO: {{arsenaleDett!.attacco! * arsenaleDett!.livello}}</p>
-              <p>ARMATURA: {{arsenaleDett!.armatura! * arsenaleDett!.livello}}</p>
-              <p>VITA: {{arsenaleDett!.vita! * arsenaleDett!.livello}}</p>
-              <p>VELOCITÀ: {{arsenaleDett!.velocita! * arsenaleDett!.livello}}</p>
-              <p>STIVA: {{arsenaleDett!.stiva! * arsenaleDett!.livello}}</p>
-              <p>CONSUMO: {{arsenaleDett!.consumo! * arsenaleDett!.livello}}</p>
+              <h3>VALORI ATTUALI:</h3>
+              <p>ATTACCO: {{ (arsenaleDett!.attacco! + (arsenaleDett!.livello * arsenaleDett?.attaccoNextLvl!)) }}</p>
+              <p>ARMATURA: {{ (arsenaleDett!.armatura! + (arsenaleDett!.livello * arsenaleDett?.armaturaNextLvl!)) }}</p>
+              <p>VITA: {{ (arsenaleDett!.vita! + (arsenaleDett!.livello * arsenaleDett?.vitaNextLvl!)) }}</p>
+              <p>VELOCITÀ: {{ (arsenaleDett!.velocita! + (arsenaleDett!.livello * arsenaleDett?.velocitaNextLvl!)) }}</p>
+              <p>STIVA: {{ (arsenaleDett!.stiva! + (arsenaleDett!.livello * arsenaleDett?.stivaNextLvl!)) }}</p>
+              <p>CONSUMO: {{ (arsenaleDett!.consumo! + (arsenaleDett!.livello * arsenaleDett?.consumoNextLvl!)) }}</p>
+              <p>NUMERO MASSIMO OBBIETTIVI: {{ (arsenaleDett!.numeroMassimoObbiettivi! + (arsenaleDett!.livello * arsenaleDett?.numeroMassimoObbiettiviNextLvl!)) }}</p>
+              <p>SPAZI PER QUESTA ARMA: {{ (arsenaleDett!.numeroMassimoArma! + (arsenaleDett!.livello * arsenaleDett?.numeroMassimoArmaNextLvl!)) }}</p>
+              <div class="obbiettivi">
+                <h3>Gli obbiettivi dell'arma "{{arsenaleDett?.nome}}" sono:</h3>
+                <p>Sistema missilistico</p>
+                <p>JJ M4-NU</p>
+                <p>Sistema missilistico</p>
+                <p>JJ M4-NU</p>
+                <p>JJ M4-NU</p>
+              </div>
             </div>
 
             <div class="st-valori-prossimi">
-              <p>ATTACCO: {{arsenaleDett!.attacco! * (arsenaleDett!.livello + 1)}}</p>
-              <p>ARMATURA: {{arsenaleDett!.armatura! * (arsenaleDett!.livello + 1)}}</p>
-              <p>VITA: {{arsenaleDett!.vita! * (arsenaleDett!.livello + 1)}}</p>
-              <p>VELOCITÀ: {{arsenaleDett!.velocita! * (arsenaleDett!.livello + 1)}}</p>
-              <p>STIVA: {{arsenaleDett!.stiva! * (arsenaleDett!.livello + 1)}}</p>
-              <p>CONSUMO: {{arsenaleDett!.consumo! * (arsenaleDett!.livello + 1)}}</p>
+              <h3>VALORI DEL PROSSIMO LIVELLO:</h3>
+              <p>ATTACCO: {{ (arsenaleDett!.attacco! + ((arsenaleDett!.livello + 1) * arsenaleDett?.attaccoNextLvl!)) }}</p>
+              <p>ARMATURA: {{ (arsenaleDett!.armatura! + ((arsenaleDett!.livello + 1) * arsenaleDett?.armaturaNextLvl!)) }}</p>
+              <p>VITA: {{ (arsenaleDett!.vita! + ((arsenaleDett!.livello + 1) * arsenaleDett?.vitaNextLvl!)) }}</p>
+              <p>VELOCITÀ: {{ (arsenaleDett!.velocita! + ((arsenaleDett!.livello + 1) * arsenaleDett?.velocitaNextLvl!)) }}</p>
+              <p>STIVA: {{ (arsenaleDett!.stiva! + ((arsenaleDett!.livello + 1) * arsenaleDett?.stivaNextLvl!)) }}</p>
+              <p>CONSUMO: {{ (arsenaleDett!.consumo! + ((arsenaleDett!.livello + 1) * arsenaleDett?.consumoNextLvl!)) }}</p>
+              <p>NUMERO MASSIMO OBBIETTIVI: {{ (arsenaleDett!.numeroMassimoObbiettivi! + ((arsenaleDett!.livello + 1) * arsenaleDett?.numeroMassimoObbiettiviNextLvl!)) }}</p>
+              <p>SPAZI PER QUESTA ARMA: {{ (arsenaleDett!.numeroMassimoArma! + ((arsenaleDett!.livello + 1) * arsenaleDett?.numeroMassimoArmaNextLvl!)) }}</p>
+              <div class="obbiettivi">
+                <h3>L'arma "{{arsenaleDett?.nome}}" è l'obbiettivo di:</h3>
+                <p>JJ M4-NU</p>
+              </div>
             </div>
           </div>
 
@@ -133,6 +137,80 @@
           <p class="nome">{{SP3R?.nome}}</p>
           <img src={{SP3R?.urlImg}} alt={{SP3R?.nome}}>
           <p class="lvl">{{SP3R?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" [ngClass]="{ 'selected': granata?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(granata!.id)">
+          <p class="nome">{{granata?.nome}}</p>
+          <img src={{granata?.urlImg}} alt={{granata?.nome}}>
+          <p class="lvl">{{granata?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': droneEsplosivo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(droneEsplosivo!.id)">
+          <p class="nome">{{droneEsplosivo?.nome}}</p>
+          <img src={{droneEsplosivo?.urlImg}} alt={{droneEsplosivo?.nome}}>
+          <p class="lvl">{{droneEsplosivo?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': sistemaMissilistico?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(sistemaMissilistico!.id)">
+          <p class="nome">{{sistemaMissilistico?.nome}}</p>
+          <img src={{sistemaMissilistico?.urlImg}} alt={{sistemaMissilistico?.nome}}>
+          <p class="lvl">{{sistemaMissilistico?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" [ngClass]="{ 'selected': moody?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(moody!.id)">
+          <p class="nome">{{moody?.nome}}</p>
+          <img src={{moody?.urlImg}} alt={{moody?.nome}}>
+          <p class="lvl">{{moody?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': doody?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(doody!.id)">
+          <p class="nome">{{doody?.nome}}</p>
+          <img src={{doody?.urlImg}} alt={{doody?.nome}}>
+          <p class="lvl">{{doody?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': zanq?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(zanq!.id)">
+          <p class="nome">{{zanq?.nome}}</p>
+          <img src={{zanq?.urlImg}} alt={{zanq?.nome}}>
+          <p class="lvl">{{zanq?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div class="struttura" [ngClass]="{ 'selected': dodo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(dodo!.id)">
+          <p class="nome">{{dodo?.nome}}</p>
+          <img src={{dodo?.urlImg}} alt={{dodo?.nome}}>
+          <p class="lvl">{{dodo?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': icio?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(icio!.id)">
+          <p class="nome">{{icio?.nome}}</p>
+          <img src={{icio?.urlImg}} alt={{icio?.nome}}>
+          <p class="lvl">{{icio?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': manu?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(manu!.id)">
+          <p class="nome">{{manu?.nome}}</p>
+          <img src={{manu?.urlImg}} alt={{manu?.nome}}>
+          <p class="lvl">{{manu?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div class="struttura" [ngClass]="{ 'selected': virus?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(virus!.id)">
+          <p class="nome">{{virus?.nome}}</p>
+          <img src={{virus?.urlImg}} alt={{virus?.nome}}>
+          <p class="lvl">{{virus?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': cargo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(cargo!.id)">
+          <p class="nome">{{cargo?.nome}}</p>
+          <img src={{cargo?.urlImg}} alt={{cargo?.nome}}>
+          <p class="lvl">{{cargo?.livello}}</p>
+        </div>
+        <div class="struttura" [ngClass]="{ 'selected': droneSpia?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(droneSpia!.id)">
+          <p class="nome">{{droneSpia?.nome}}</p>
+          <img src={{droneSpia?.urlImg}} alt={{droneSpia?.nome}}>
+          <p class="lvl">{{droneSpia?.livello}}</p>
         </div>
       </div>
     </div>

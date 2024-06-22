@@ -20,12 +20,24 @@ export class StrutturaDettDto {
 
   //arsenale
   public livelloFabbricaRequisito?:number;
+
   public attacco?:number;
   public armatura?:number;
   public vita?:number;
   public velocita?:number;
   public stiva?:number;
   public consumo?:number;
+  public numeroMassimoObbiettivi?:number;
+  public numeroMassimoArma?:number;
+
+  public attaccoNextLvl?:number;
+  public armaturaNextLvl?:number;
+  public vitaNextLvl?:number;
+  public velocitaNextLvl?:number;
+  public stivaNextLvl?:number;
+  public consumoNextLvl?:number;
+  public numeroMassimoObbiettiviNextLvl?:number;
+  public numeroMassimoArmaNextLvl?:number;
 
   //difesa
   public danno?:number;
