@@ -339,6 +339,10 @@
   height: 100px;
 }
 
+.bianco-nero  {
+  filter: grayscale(100%);
+}
+
 .scheda-tecnica-flex {
   display: flex;
   flex-direction: column;

@@ -42,5 +42,10 @@ export class StrutturaDettDto {
   //difesa
   public danno?:number;
   public penetrazioneArmatura?:number;
+  public numeroMassimoDifesa?:number;
+
+  public dannoNextLvl?:number;
+  public penetrazioneArmaturaNextLvl?:number;
+  public numeroMassimoDifesaNextLvl?:number;
 }
 

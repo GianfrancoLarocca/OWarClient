@@ -65,8 +65,6 @@
             </div>
           </div>
 
-
-
         </div>
 
         <p class="centr">Chance di successo:</p>
@@ -106,34 +104,58 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" [ngClass]="{ 'selected': P070?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(P070!.id)">
+        <div (click)="showDetailsMethod(P070!.id)" [ngClass]="{
+          'selected': P070?.nome === arsenaleDett?.nome ,
+          'bianco-nero': P070!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{P070?.nome}}</p>
           <img src={{P070?.urlImg}} alt={{P070?.nome}}>
           <p class="lvl">{{P070?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': TT9000?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(TT9000!.id)">
+        <div (click)="showDetailsMethod(TT9000!.id)" [ngClass]="{
+          'selected': TT9000?.nome === arsenaleDett?.nome ,
+          'bianco-nero': TT9000!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{TT9000?.nome}}</p>
           <img src={{TT9000?.urlImg}} alt={{TT9000?.nome}}>
           <p class="lvl">{{TT9000?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': S99K?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(S99K!.id)">
+        <div (click)="showDetailsMethod(S99K!.id)" [ngClass]="{
+          'selected': S99K?.nome === arsenaleDett?.nome ,
+          'bianco-nero': S99K!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{S99K?.nome}}</p>
           <img src={{S99K?.urlImg}} alt={{S99K?.nome}}>
           <p class="lvl">{{S99K?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" [ngClass]="{ 'selected': BR88EVO?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(BR88EVO!.id)">
+        <div (click)="showDetailsMethod(BR88EVO!.id)" [ngClass]="{
+          'selected': BR88EVO?.nome === arsenaleDett?.nome ,
+          'bianco-nero': BR88EVO!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{BR88EVO?.nome}}</p>
           <img src={{BR88EVO?.urlImg}} alt={{BR88EVO?.nome}}>
           <p class="lvl">{{BR88EVO?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': AKK164?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(AKK164!.id)">
+        <div (click)="showDetailsMethod(AKK164!.id)" [ngClass]="{
+          'selected': AKK164?.nome === arsenaleDett?.nome ,
+          'bianco-nero': AKK164!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{AKK164?.nome}}</p>
           <img src={{AKK164?.urlImg}} alt={{AKK164?.nome}}>
           <p class="lvl">{{AKK164?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': SP3R?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(SP3R!.id)">
+        <div (click)="showDetailsMethod(SP3R!.id)" [ngClass]="{
+          'selected': SP3R?.nome === arsenaleDett?.nome ,
+          'bianco-nero': SP3R!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{SP3R?.nome}}</p>
           <img src={{SP3R?.urlImg}} alt={{SP3R?.nome}}>
           <p class="lvl">{{SP3R?.livello}}</p>
@@ -143,34 +165,58 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" [ngClass]="{ 'selected': granata?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(granata!.id)">
+        <div (click)="showDetailsMethod(granata!.id)" [ngClass]="{
+          'selected': granata?.nome === arsenaleDett?.nome ,
+          'bianco-nero': granata!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{granata?.nome}}</p>
           <img src={{granata?.urlImg}} alt={{granata?.nome}}>
           <p class="lvl">{{granata?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': droneEsplosivo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(droneEsplosivo!.id)">
+        <div (click)="showDetailsMethod(droneEsplosivo!.id)" [ngClass]="{
+          'selected': droneEsplosivo?.nome === arsenaleDett?.nome ,
+          'bianco-nero': droneEsplosivo!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{droneEsplosivo?.nome}}</p>
           <img src={{droneEsplosivo?.urlImg}} alt={{droneEsplosivo?.nome}}>
           <p class="lvl">{{droneEsplosivo?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': sistemaMissilistico?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(sistemaMissilistico!.id)">
+        <div (click)="showDetailsMethod(sistemaMissilistico!.id)" [ngClass]="{
+          'selected': sistemaMissilistico?.nome === arsenaleDett?.nome ,
+          'bianco-nero': sistemaMissilistico!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{sistemaMissilistico?.nome}}</p>
           <img src={{sistemaMissilistico?.urlImg}} alt={{sistemaMissilistico?.nome}}>
           <p class="lvl">{{sistemaMissilistico?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" [ngClass]="{ 'selected': moody?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(moody!.id)">
+        <div (click)="showDetailsMethod(moody!.id)" [ngClass]="{
+          'selected': moody?.nome === arsenaleDett?.nome ,
+          'bianco-nero': moody!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{moody?.nome}}</p>
           <img src={{moody?.urlImg}} alt={{moody?.nome}}>
           <p class="lvl">{{moody?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': doody?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(doody!.id)">
+        <div (click)="showDetailsMethod(doody!.id)" [ngClass]="{
+          'selected': doody?.nome === arsenaleDett?.nome ,
+          'bianco-nero': doody!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{doody?.nome}}</p>
           <img src={{doody?.urlImg}} alt={{doody?.nome}}>
           <p class="lvl">{{doody?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': zanq?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(zanq!.id)">
+        <div (click)="showDetailsMethod(zanq!.id)" [ngClass]="{
+          'selected': zanq?.nome === arsenaleDett?.nome ,
+          'bianco-nero': zanq!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{zanq?.nome}}</p>
           <img src={{zanq?.urlImg}} alt={{zanq?.nome}}>
           <p class="lvl">{{zanq?.livello}}</p>
@@ -180,34 +226,58 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" [ngClass]="{ 'selected': dodo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(dodo!.id)">
+        <div (click)="showDetailsMethod(dodo!.id)" [ngClass]="{
+          'selected': dodo?.nome === arsenaleDett?.nome ,
+          'bianco-nero': dodo!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{dodo?.nome}}</p>
           <img src={{dodo?.urlImg}} alt={{dodo?.nome}}>
           <p class="lvl">{{dodo?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': icio?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(icio!.id)">
+        <div (click)="showDetailsMethod(icio!.id)" [ngClass]="{
+          'selected': icio?.nome === arsenaleDett?.nome ,
+          'bianco-nero': icio!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{icio?.nome}}</p>
           <img src={{icio?.urlImg}} alt={{icio?.nome}}>
           <p class="lvl">{{icio?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': manu?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(manu!.id)">
+        <div (click)="showDetailsMethod(manu!.id)" [ngClass]="{
+          'selected': manu?.nome === arsenaleDett?.nome ,
+          'bianco-nero': manu!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{manu?.nome}}</p>
           <img src={{manu?.urlImg}} alt={{manu?.nome}}>
           <p class="lvl">{{manu?.livello}}</p>
         </div>
       </div>
       <div class="struttura-div-destra">
-        <div class="struttura" [ngClass]="{ 'selected': virus?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(virus!.id)">
+        <div (click)="showDetailsMethod(virus!.id)" [ngClass]="{
+          'selected': virus?.nome === arsenaleDett?.nome ,
+          'bianco-nero': virus!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{virus?.nome}}</p>
           <img src={{virus?.urlImg}} alt={{virus?.nome}}>
           <p class="lvl">{{virus?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': cargo?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(cargo!.id)">
+        <div (click)="showDetailsMethod(cargo!.id)" [ngClass]="{
+          'selected': cargo?.nome === arsenaleDett?.nome ,
+          'bianco-nero': cargo!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{cargo?.nome}}</p>
           <img src={{cargo?.urlImg}} alt={{cargo?.nome}}>
           <p class="lvl">{{cargo?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': droneSpia?.nome === arsenaleDett?.nome}" (click)="showDetailsMethod(droneSpia!.id)">
+        <div (click)="showDetailsMethod(droneSpia!.id)" [ngClass]="{
+          'selected': droneSpia?.nome === arsenaleDett?.nome ,
+          'bianco-nero': droneSpia!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
           <p class="nome">{{droneSpia?.nome}}</p>
           <img src={{droneSpia?.urlImg}} alt={{droneSpia?.nome}}>
           <p class="lvl">{{droneSpia?.livello}}</p>

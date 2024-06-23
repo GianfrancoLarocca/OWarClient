@@ -63,17 +63,29 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" [ngClass]="{ 'selected': scudo?.nome === techDett?.nome}" (click)="showDetailsMethod(scudo!.id)">
+        <div (click)="showDetailsMethod(scudo!.id)" [ngClass]="{
+          'selected': scudo?.nome === techDett?.nome ,
+          'bianco-nero': scudo!.requisito > laboratorioRicercaLvl,
+          'struttura': true
+        }">
           <p class="nome">{{scudo?.nome}}</p>
           <img src={{scudo?.urlImg}} alt={{scudo?.nome}}>
           <p class="lvl">{{scudo?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': performante?.nome === techDett?.nome}" (click)="showDetailsMethod(performante!.id)">
+        <div (click)="showDetailsMethod(performante!.id)" [ngClass]="{
+          'selected': performante?.nome === techDett?.nome ,
+          'bianco-nero': performante!.requisito > laboratorioRicercaLvl,
+          'struttura': true
+        }">
           <p class="nome">{{performante?.nome}}</p>
           <img src={{performante?.urlImg}} alt={{performante?.nome}}>
           <p class="lvl">{{performante?.livello}}</p>
         </div>
-        <div class="struttura" [ngClass]="{ 'selected': fortuna?.nome === techDett?.nome}" (click)="showDetailsMethod(fortuna!.id)">
+        <div (click)="showDetailsMethod(fortuna!.id)" [ngClass]="{
+          'selected': fortuna?.nome === techDett?.nome ,
+          'bianco-nero': fortuna!.requisito > laboratorioRicercaLvl,
+          'struttura': true
+        }">
           <p class="nome">{{fortuna?.nome}}</p>
           <img src={{fortuna?.urlImg}} alt={{fortuna?.nome}}>
           <p class="lvl">{{fortuna?.livello}}</p>

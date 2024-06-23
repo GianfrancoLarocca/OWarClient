@@ -26,7 +26,16 @@ export class DifesaComponent implements OnInit {
   private difesaDto: Array<StrutturaDto> = [];
   public difesaDett?: StrutturaDettDto;
 
-  public torretta?: StrutturaDto;
+  public filo?: StrutturaDto;
+  public mina?: StrutturaDto;
+  public sentinella?: StrutturaDto;
+  public torrettaLeggera?: StrutturaDto;
+  public torrettaPesante?: StrutturaDto;
+  public torrettaPrecisione?: StrutturaDto;
+  public antiMissili?: StrutturaDto;
+  public cannone?: StrutturaDto;
+  public missileCalore?: StrutturaDto;
+  public radio?: StrutturaDto;
 
   fabbricaMunizioniLvl:number=0;
 
@@ -50,7 +59,16 @@ export class DifesaComponent implements OnInit {
       this.difesaDto = r;
       console.log('difesaDto', this.difesaDto);
 
-      this.torretta = this.difesaDto.find(ars => ars.nome === "Torretta leggera");
+      this.filo = this.difesaDto.find(ars => ars.nome === "Filo spinato");
+      this.mina = this.difesaDto.find(ars => ars.nome === "Mina anti-uomo");
+      this.sentinella = this.difesaDto.find(ars => ars.nome === "Sentinella");
+      this.torrettaLeggera = this.difesaDto.find(ars => ars.nome === "Torretta leggera");
+      this.torrettaPesante = this.difesaDto.find(ars => ars.nome === "Torretta pesante");
+      this.torrettaPrecisione = this.difesaDto.find(ars => ars.nome === "Torretta di precisione");
+      this.antiMissili = this.difesaDto.find(ars => ars.nome === "Sistema anti-missilistico");
+      this.cannone = this.difesaDto.find(ars => ars.nome === "Cannone");
+      this.missileCalore = this.difesaDto.find(ars => ars.nome === "Missile a ricerca di calore");
+      this.radio = this.difesaDto.find(ars => ars.nome === "Disturbatore radio");
     });
   }
 

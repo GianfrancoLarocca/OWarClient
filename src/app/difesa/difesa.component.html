@@ -22,42 +22,44 @@
         </div>
         <div class="schermata-scheda-tecnica" *ngIf="chiudiFinestre.schedaTecnicaVista">
 
-          <h2 id="st-titolo">SCHEDA TECNICA</h2>
+          <h2 id="st-titolo">SCHEDA TECNICA "{{difesaDett?.nome}}"</h2>
           <div id="icona-chiudi" (click)="chiudiFinestre.chiudiSchedaTecnica()">
             <mat-icon>close</mat-icon>
           </div>
 
-
-          <div class="st-sub-titolo">
-
-              <div class="st-sub-titolo-valori-attuali">
-                <h3>VALORI ATTUALI:</h3>
-
-              </div>
-
-              <div class="st-sub-titolo-valori-prossimi">
-                <h3>VALORI AL PROSSIMO LIVELLO:</h3>
-              </div>
-
-          </div>
-
           <div class="st-valori-flex">
             <div class="st-valori-attuali">
-              <p>DANNO: {{difesaDett!.danno! * difesaDett!.livello}}</p>
-              <p>PENETRAZIONE ARMATURA: {{difesaDett!.penetrazioneArmatura! * difesaDett!.livello}}</p>
-              <p>ARMATURA: {{difesaDett!.armatura! * difesaDett!.livello}}</p>
-              <p>VITA: {{difesaDett!.vita! * difesaDett!.livello}}</p>
+              <h3>VALORI ATTUALI:</h3>
+              <p>DANNO: {{ (difesaDett!.danno! + (difesaDett!.livello * difesaDett?.dannoNextLvl!)) }}</p>
+              <p>PENETRAZIONE ARMATURA: {{ (difesaDett!.penetrazioneArmatura! + (difesaDett!.livello * difesaDett?.penetrazioneArmaturaNextLvl!)) }}</p>
+              <p>ARMATURA: {{ (difesaDett!.armatura! + (difesaDett!.livello * difesaDett?.armaturaNextLvl!)) }}</p>
+              <p>VITA: {{ (difesaDett!.vita! + (difesaDett!.livello * difesaDett?.vitaNextLvl!)) }}</p>
+              <p>NUMERO MASSIMO OBBIETTIVI: {{ (difesaDett!.numeroMassimoObbiettivi! + (difesaDett!.livello * difesaDett?.numeroMassimoObbiettiviNextLvl!)) }}</p>
+              <p>SPAZI PER QUESTA DIFESA: {{ (difesaDett!.numeroMassimoDifesa! + (difesaDett!.livello * difesaDett?.numeroMassimoDifesaNextLvl!)) }}</p>
+              <div class="obbiettivi">
+                <h3>Gli obbiettivi della difesa "{{difesaDett?.nome}}" sono:</h3>
+                <p>Sistema missilistico</p>
+                <p>JJ M4-NU</p>
+                <p>Sistema missilistico</p>
+                <p>JJ M4-NU</p>
+                <p>JJ M4-NU</p>
+              </div>
             </div>
 
             <div class="st-valori-prossimi">
-              <p>DANNO: {{difesaDett!.danno! * (difesaDett!.livello + 1)}}</p>
-              <p>PENETRAZIONE ARMATURA: {{difesaDett!.penetrazioneArmatura! * (difesaDett!.livello + 1)}}</p>
-              <p>ARMATURA: {{difesaDett!.armatura! * (difesaDett!.livello + 1)}}</p>
-              <p>VITA: {{difesaDett!.vita! * (difesaDett!.livello + 1)}}</p>
+              <h3>VALORI DEL PROSSIMO LIVELLO:</h3>
+              <p>DANNO: {{ (difesaDett!.danno! + ((difesaDett!.livello + 1) * difesaDett?.dannoNextLvl!)) }}</p>
+              <p>PENETRAZIONE ARMATURA: {{ (difesaDett!.penetrazioneArmatura! + ((difesaDett!.livello + 1) * difesaDett?.penetrazioneArmaturaNextLvl!)) }}</p>
+              <p>ARMATURA: {{ (difesaDett!.armatura! + ((difesaDett!.livello + 1) * difesaDett?.armaturaNextLvl!)) }}</p>
+              <p>VITA: {{ (difesaDett!.vita! + ((difesaDett!.livello + 1) * difesaDett?.vitaNextLvl!)) }}</p>
+              <p>NUMERO MASSIMO OBBIETTIVI: {{ (difesaDett!.numeroMassimoObbiettivi! + ((difesaDett!.livello + 1) * difesaDett?.numeroMassimoObbiettiviNextLvl!)) }}</p>
+              <p>SPAZI PER QUESTA DIFESA: {{ (difesaDett!.numeroMassimoDifesa! + ((difesaDett!.livello + 1) * difesaDett?.numeroMassimoDifesaNextLvl!)) }}</p>
+              <div class="obbiettivi">
+                <h3>L'arma "{{difesaDett?.nome}}" è l'obbiettivo di:</h3>
+                <p>JJ M4-NU</p>
+              </div>
             </div>
           </div>
-
-
 
         </div>
 
@@ -98,10 +100,104 @@
 
     <div class="strutture-divise">
       <div class="struttura-div-sinistra">
-        <div class="struttura" [ngClass]="{ 'selected': torretta?.nome === difesaDett?.nome}" (click)="showDetailsMethod(torretta!.id)">
-          <p class="nome">{{torretta?.nome}}</p>
-          <img src={{torretta?.urlImg}} alt={{torretta?.nome}}>
-          <p class="lvl">{{torretta?.livello}}</p>
+        <div (click)="showDetailsMethod(filo!.id)" [ngClass]="{
+           'selected': filo?.nome === difesaDett?.nome ,
+           'bianco-nero': filo!.requisito > fabbricaMunizioniLvl,
+           'struttura': true
+        }">
+          <p class="nome">{{filo?.nome}}</p>
+          <img [src]="filo?.urlImg" [alt]="filo?.nome">
+          <p class="lvl">{{filo?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(mina!.id)" [ngClass]="{
+          'selected': mina?.nome === difesaDett?.nome ,
+          'bianco-nero': mina!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{mina?.nome}}</p>
+          <img [src]="mina?.urlImg" [alt]="mina?.nome">
+          <p class="lvl">{{mina?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(sentinella!.id)" [ngClass]="{
+          'selected': sentinella?.nome === difesaDett?.nome ,
+          'bianco-nero': sentinella!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{sentinella?.nome}}</p>
+          <img [src]="sentinella?.urlImg" [alt]="sentinella?.nome">
+          <p class="lvl">{{sentinella?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div (click)="showDetailsMethod(torrettaLeggera!.id)" [ngClass]="{
+          'selected': torrettaLeggera?.nome === difesaDett?.nome ,
+          'bianco-nero': torrettaLeggera!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{torrettaLeggera?.nome}}</p>
+          <img [src]="torrettaLeggera?.urlImg" [alt]="torrettaLeggera?.nome">
+          <p class="lvl">{{torrettaLeggera?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(torrettaPesante!.id)" [ngClass]="{
+          'selected': torrettaPesante?.nome === difesaDett?.nome ,
+          'bianco-nero': torrettaPesante!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{torrettaPesante?.nome}}</p>
+          <img [src]="torrettaPesante?.urlImg" [alt]="torrettaPesante?.nome">
+          <p class="lvl">{{torrettaPesante?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(torrettaPrecisione!.id)" [ngClass]="{
+          'selected': torrettaPrecisione?.nome === difesaDett?.nome ,
+          'bianco-nero': torrettaPrecisione!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{torrettaPrecisione?.nome}}</p>
+          <img [src]="torrettaPrecisione?.urlImg" [alt]="torrettaPrecisione?.nome">
+          <p class="lvl">{{torrettaPrecisione?.livello}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+        <div (click)="showDetailsMethod(antiMissili!.id)" [ngClass]="{
+          'selected': antiMissili?.nome === difesaDett?.nome ,
+          'bianco-nero': antiMissili!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{antiMissili?.nome}}</p>
+          <img [src]="antiMissili?.urlImg" [alt]="antiMissili?.nome">
+          <p class="lvl">{{antiMissili?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(cannone!.id)" [ngClass]="{
+          'selected': cannone?.nome === difesaDett?.nome ,
+          'bianco-nero': cannone!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{cannone?.nome}}</p>
+          <img [src]="cannone?.urlImg" [alt]="cannone?.nome">
+          <p class="lvl">{{cannone?.livello}}</p>
+        </div>
+        <div (click)="showDetailsMethod(missileCalore!.id)" [ngClass]="{
+          'selected': missileCalore?.nome === difesaDett?.nome ,
+          'bianco-nero': missileCalore!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{missileCalore?.nome}}</p>
+          <img [src]="missileCalore?.urlImg" [alt]="missileCalore?.nome">
+          <p class="lvl">{{missileCalore?.livello}}</p>
+        </div>
+      </div>
+      <div class="struttura-div-destra">
+        <div (click)="showDetailsMethod(radio!.id)" [ngClass]="{
+          'selected': radio?.nome === difesaDett?.nome ,
+          'bianco-nero': radio!.requisito > fabbricaMunizioniLvl,
+          'struttura': true
+        }">
+          <p class="nome">{{radio?.nome}}</p>
+          <img [src]="radio?.urlImg" [alt]="radio?.nome">
+          <p class="lvl">{{radio?.livello}}</p>
         </div>
       </div>
     </div>
