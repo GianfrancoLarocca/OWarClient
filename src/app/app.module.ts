@@ -30,6 +30,10 @@ import { StruttureComponent } from './strutture/strutture.component';
 import { TecnologiaComponent } from './tecnologia/tecnologia.component';
 import { ArsenaleComponent } from './arsenale/arsenale.component';
 import { DifesaComponent } from './difesa/difesa.component';
+import { EsercitoComponent } from './esercito/esercito.component';
+import { TimeFormatPipe } from '../pipes/time-format.pipe';
+import moment from 'moment';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 
 @NgModule({
@@ -53,7 +57,10 @@ import { DifesaComponent } from './difesa/difesa.component';
     StruttureComponent,
     TecnologiaComponent,
     ArsenaleComponent,
-    DifesaComponent
+    DifesaComponent,
+    EsercitoComponent,
+    TimeFormatPipe,
+    ErrorMessageComponent,
 
   ],
   imports: [

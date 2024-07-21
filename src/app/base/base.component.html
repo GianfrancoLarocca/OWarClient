@@ -159,7 +159,7 @@
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_tech'}" routerLink="/tecnologia">TECNOLOGIE</button>
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_arsenale'}" routerLink="/arsenale">ARSENALE</button>
         <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_difesa'}" routerLink="/difesa">DIFESA</button>
-        <button routerLink="/">ESERCITO</button>
+        <button [ngClass]="{ 'selezionato': this.playerService.tastoSelezionato === 'tasto_esercito'}" routerLink="/esercito">ESERCITO</button>
         <button routerLink="/">MONDO</button>
         <button routerLink="/">MISSIONE</button>
         <button routerLink="/">INFERMERIA</button>

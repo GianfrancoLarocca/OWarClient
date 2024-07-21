@@ -19,6 +19,7 @@ import { StruttureComponent } from './strutture/strutture.component';
 import { TecnologiaComponent } from './tecnologia/tecnologia.component';
 import { ArsenaleComponent } from './arsenale/arsenale.component';
 import { DifesaComponent } from './difesa/difesa.component';
+import { EsercitoComponent } from './esercito/esercito.component';
 
 const routes: Routes = [
 
@@ -56,6 +57,11 @@ const routes: Routes = [
         path: 'difesa',
         component: DifesaComponent,
         data: { title: 'difesa' }
+      },
+      {
+        path: 'esercito',
+        component: EsercitoComponent,
+        data: { title: 'esercito' }
       },
       {
         path: 'player',

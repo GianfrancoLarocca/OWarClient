@@ -6,4 +6,8 @@ export class StrutturaDto {
   public urlImg: string = '';
 
   public requisito:number = 0;
+
+  // esercito
+
+  public soldati: number = 0;
 }

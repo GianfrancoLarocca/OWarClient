@@ -1,0 +1,131 @@
+<!-- *ngIf="this.esercitoService.uce.length > 0 || (this.esercitoService.uce.length === 1 && this.esercitoService.uce[0].numeroSoldatiDaComprare > 0)" -->
+<div class="coda-addestramento" *ngIf="this.esercitoService.uce.length > 1 || (this.esercitoService.uce.length === 1 && this.esercitoService.uce[0].numeroSoldatiDaComprare > 0)"
+   [@fadeInOnEnter]="{ value: '', params: { duration: 1000 } }" [@fadeOutOnLeave]="{ value: '', params: { duration: 1000 } }">
+
+  <div id="titolo-coda">
+    <h3>Coda addestramento</h3>
+  </div>
+
+  <div class="primo-elemento">
+    <img [src]="esercitoService.codaImgPrimoElemento"[alt]="esercitoService.codaTitoloPrimoElemento" [title]="esercitoService.codaTitoloPrimoElemento" >
+    <div class="primo-elemento-dati">
+      <h2 class="primo-elemento-titolo">{{esercitoService.codaTitoloPrimoElemento}}</h2>
+      <div class="primo-elemento-tempo">
+        <div id="numero-soldati-pe">
+          <p>Da addestrare:</p>
+          <p>{{esercitoService.soldatiInAddestramentoPrimoElemento}}</p>
+        </div>
+        <div id="tempo-pe">
+          <p>Tempo:</p>
+          <p>{{esercitoService.codaTempoPrimoElemento | timeFormat }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elementi-coda">
+
+    <ng-container *ngFor="let elem of esercitoService.elementiSecondariCoda">
+      <div class="elemento-coda">
+        <p class="nome-elemento-coda">{{elem.nome}}</p>
+        <img [src]="elem.img" >
+        <div class="numero-soldati-coda">
+          <p>{{elem.quantita}}</p>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div id="tempo-totale">
+    <p>{{esercitoService.codaTempoTotale | timeFormat }}</p>
+  </div>
+
+</div>
+
+
+
+<div class="container">
+
+  <div class="dett" *ngIf="!showDetails">
+    <h1 id="titolo-sezione">{{title | uppercase}}</h1>
+  </div>
+  <div class="dett" *ngIf="showDetails" [@fadeInOnEnter]>
+
+    <div class="principale">
+      <div class="img">
+        <img src={{esercitoDettagli?.urlImmagine}} alt={{esercitoDettagli?.nome}}>
+      </div>
+      <div class="info">
+        <h2>{{esercitoDettagli?.nome}}</h2>
+        <p class="centr">Soldati: {{esercitoDettagli?.quantitaSoldati | number: '1.0-0' : 'it-IT'}}</p>
+
+        <p class="centr">Costo:</p>
+        <p *ngFor="let costo of esercitoDettagli?.costi | keyvalue; let i = index">{{ costo.key }}: {{costo.value * soldatiDaAddestrareInput | number: '1.0-0' : 'it-IT'}} </p>
+
+        <div class="info-arma">
+          <p>L'arma o veicolo utilizzata/o da "{{esercitoDettagli?.nome}}" è "{{esercitoDettagli?.armaSoldato}}" (Puoi trovare la scheda tecnica dell'arma in Arsenale)</p>
+        </div>
+
+        <p class="centr">Tempo addestramento: {{esercitoDettagli?.secondiPerAddestrare! * soldatiDaAddestrareInput | timeFormat }}</p>
+
+        <div class="try">
+          <input type="number" min="1" max="999999999" [(ngModel)]="soldatiDaAddestrareInput">
+          Limite {{esercitoDettagli?.limiteUnita}}
+          <button (click)="compraSoldati(esercitoDettagli?.id!, soldatiDaAddestrareInput)">Addestra</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="descrizione">
+      <p>{{esercitoDettagli?.descrizione}}</p>
+    </div>
+
+
+  </div>
+
+  <app-error-message [errorMessage]="errorMessage" [isVisible]="isVisible"></app-error-message>
+
+  <div class="strutture">
+
+    <div class="strutture-divise">
+      <div class="struttura-div-sinistra">
+
+        <div (click)="showDetailsMethod(esercitoService.mischia1?.id!)" [ngClass]="{
+          'selected': esercitoService.mischia1?.nome === esercitoDettagli?.nome ,
+          'bianco-nero': esercitoService.mischia1!.requisito > 0,
+          'struttura': true
+        }">
+          <p class="nome">{{esercitoService.mischia1?.nome}}</p>
+          <img src={{esercitoService.mischia1?.urlImg}} alt={{esercitoService.mischia1?.nome}}>
+          <p class="lvl">{{esercitoService.mischia1?.soldati}}</p>
+        </div>
+
+        <div (click)="showDetailsMethod(esercitoService.mischia2?.id!)" [ngClass]="{
+          'selected': esercitoService.mischia2?.nome === esercitoDettagli?.nome ,
+          'bianco-nero': esercitoService.mischia2!.requisito > 0,
+          'struttura': true
+        }">
+          <p class="nome">{{esercitoService.mischia2?.nome}}</p>
+          <img src={{esercitoService.mischia2?.urlImg}} alt={{esercitoService.mischia2?.nome}}>
+          <p class="lvl">{{esercitoService.mischia2?.soldati}}</p>
+        </div>
+
+        <div (click)="showDetailsMethod(esercitoService.mischia3?.id!)" [ngClass]="{
+          'selected': esercitoService.mischia3?.nome === esercitoDettagli?.nome ,
+          'bianco-nero': esercitoService.mischia3!.requisito > 0,
+          'struttura': true
+        }">
+          <p class="nome">{{esercitoService.mischia3?.nome}}</p>
+          <img src={{esercitoService.mischia3?.urlImg}} alt={{esercitoService.mischia3?.nome}}>
+          <p class="lvl">{{esercitoService.mischia3?.soldati}}</p>
+        </div>
+      </div>
+
+      <div class="struttura-div-destra">
+
+
+      </div>
+    </div>
+
+</div>
